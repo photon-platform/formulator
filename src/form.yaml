@@ -1,0 +1,29 @@
+form:
+  title: FORM title
+  id: form-1
+  fields:
+    first-name:
+      label: First Name
+      placeholder: Enter your First Name
+      type: Input
+      validate:
+        required: true
+
+    last-name:
+      label: Last Name
+      placeholder: Enter your Last Name
+      type: Input
+      validate:
+        required: true
+
+    buttons:
+      save:
+        label: Save
+        variant: Primary
+      quit:
+        label: Quit
+        variant: Default
+
+    process:
+      save:
+      quit:

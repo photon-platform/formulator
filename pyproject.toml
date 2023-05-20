@@ -1,0 +1,39 @@
+[project]
+name = "formulator"
+dynamic = ["version"]
+# version = "0.0.1"
+authors = [
+  { name="phi ARCHITECT", email="github@phiarchitect.com" },
+]
+description = "create and manage log entries for a python project"
+readme = "README.rst"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "textual",
+    "rich",
+    "jinja2",
+]
+
+[project.scripts]
+formulator = "formulator.app:run"
+
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["photon_platform"]
+namespaces = true
+
+[tool.setuptools.dynamic]
+version = {attr = "photon_platform.logger.__version__"}
+
+[project.urls]
+"Homepage" = "https://github.com/photon-platform/logger"
+"Bug Tracker" = "https://github.com/photon-platform/logger/issues"

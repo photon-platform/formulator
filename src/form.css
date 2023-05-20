@@ -1,0 +1,26 @@
+
+.form {
+    height: auto;
+    margin: 1 0;
+    padding: 1 2;
+    layout: grid;
+    grid-size: 2 2;
+    /* grid-rows: 4; */
+    grid-columns: 20 2fr;
+    background: $boost;
+    border: wide $background; 
+}
+
+.form Button{
+    margin: 1 1;
+    /* width: 100%; */
+    width: 1fr;
+}
+
+.form Label {
+    padding: 1 2;
+    text-align: right;
+}
+
+
+

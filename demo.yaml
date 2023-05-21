@@ -1,6 +1,6 @@
 form:
-  title: FORM title
-  id: form-1
+  title: Demo Form
+  id: demo-1
   fields:
     first-name:
       label: First Name
@@ -8,22 +8,7 @@ form:
       type: Input
       validate:
         required: true
-
     last-name:
       label: Last Name
       placeholder: Enter your Last Name
       type: Input
-      validate:
-        required: true
-
-    buttons:
-      save:
-        label: Save
-        variant: Primary
-      quit:
-        label: Quit
-        variant: Default
-
-    process:
-      save:
-      quit:

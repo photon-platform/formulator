@@ -1,14 +1,14 @@
-=================================
 Formulator: Dynamic Form Builder
-=================================
+================================
 
 Formulator is a Python-based terminal form application built using the Textual
 library and YAML. It allows you to quickly define and generate terminal-based
 forms using a simple YAML blueprint. Formulator also provides basic input
 validation features that can be customized as needed.
 
+
 Installation
-============
+------------
 To install Formulator, clone this repository and install the required Python packages:
 
 .. code-block:: bash
@@ -17,8 +17,9 @@ To install Formulator, clone this repository and install the required Python pac
     cd formulator
     pip install -r requirements.txt
 
+
 Usage
-=====
+-----
 To use Formulator, first create a YAML blueprint for your form. This blueprint
 defines the fields, buttons, and validation rules for your form. An example
 blueprint is included in the repository.

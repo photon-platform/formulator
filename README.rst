@@ -1,149 +1,134 @@
-Formulator: Dynamic Form Builder
-================================
+==========================
+PHOTON Platform Formulator
+==========================
 
-Formulator is a Python-based terminal form application built using the Textual
-library and YAML. It allows you to quickly define and generate terminal-based
-forms using a simple YAML blueprint. Formulator also provides basic input
-validation features that can be customized as needed.
-
+Formulator is a library for dynamically generating terminal-based forms using
+Python and the Textual library. Forms are defined using a simple YAML blueprint
+format that specifies the form fields, their types, and their validation rules.
+The Formulator library interprets this blueprint and generates a form that can
+be interacted with in the terminal. When the form is submitted, Formulator
+validates the input values against the validation rules and displays any
+errors. It's a handy tool for collecting user input from the terminal in a
+structured and validated manner.
 
 Installation
-------------
-To install Formulator, clone this repository and install the required Python packages:
+============
+Install Formulator with pip:
 
 .. code-block:: bash
 
-    git clone https://github.com/yourusername/formulator.git
-    cd formulator
-    pip install -r requirements.txt
+    pip install photon-platform-formulator
 
 
 Usage
------
-To use Formulator, first create a YAML blueprint for your form. This blueprint
-defines the fields, buttons, and validation rules for your form. An example
-blueprint is included in the repository.
-
-To run the form application with your blueprint, use the following command:
-
-.. code-block:: bash
-
-    python formulator.py --blueprint blueprint.yaml
-
-Customization
-=============
-To customize Formulator, you can define your own validation rules in the
-blueprint. Each validation rule corresponds to a method in the Formulator class
-that is called when the form is submitted. The method name must follow the
-format 'validate_{rule}', where {rule} is the name of the validation rule in
-the blueprint.
-
-For example, if you want to add a validation rule that checks if a field's
-value is a valid URL, you can add the rule 'url: true' to the field's
-'validate' section in the blueprint:
+=====
+To use Formulator, first define your form blueprint in a YAML file. For example:
 
 .. code-block:: yaml
 
-    fields:
-      website:
-        label: Website
-        placeholder: Enter your website URL
-        type: Input
-        validate:
-          url: true
+    form:
+      title: Retro Encabulator Configurator
+      id: retro-encabulator
+      fields:
+        instrument-name:
+          label: Instrument
+          placeholder: Enter Name
+          type: Input
+          validate:
+            required: true
+            max_length: 8
+        # ...
 
-Then, in the Formulator class, define a method 'validate_url' that performs the
-desired validation check:
-
-.. code-block:: python
-
-    def validate_url(self, field_label, value, validation_errors, is_url):
-        if is_url:
-            # Check if the value is a valid URL.
-            # Add an error message to validation_errors if the check fails.
-            pass
-
-With this setup, Formulator will automatically call the 'validate_url' method
-when the form is submitted and the 'website' field has a value.
-
-Using Formulator as a Library
-=============================
-
-Formulator can also be imported and used in your Python scripts. This allows
-you to dynamically generate forms and handle user input within your
-application. Here is a basic usage example:
+Then, in your Python script, load the blueprint and pass it to the Formulator class:
 
 .. code-block:: python
 
-    from formulator import Formulator
-    import yaml
+    from photon_platform.formulator import Formulator, load_blueprint
 
-    # Load a form blueprint from a YAML file
-    with open('blueprint.yaml', 'r') as file:
-        blueprint = yaml.load(file, Loader=yaml.FullLoader)
-
-    # Create and run the form
+    blueprint = load_blueprint("blueprint.yaml")
     form = Formulator(blueprint)
-    return_values = form.run()
+    form.run()
 
-    # Use the returned values as needed
-    print(return_values)
+Features
+========
 
-In this example, `run()` starts the form application and returns the user's
-input when the form is submitted. The input is returned as a dictionary where
-the keys are the field IDs and the values are the user's input.
+Formulator comes packed with a range of features that make it easy and efficient to generate dynamic forms:
 
-If you want to define the blueprint in Python instead of a YAML file, you can
-build it as a nested dictionary. Here is an example:
+1. **Simple Blueprint Definition**: Formulator uses a simple and intuitive YAML
+   blueprint to define form fields, types, options, and validation rules. This
+   makes it easy to create complex forms without writing any code.
+
+2. **Dynamic Form Generation**: Based on the provided YAML blueprint,
+   Formulator dynamically creates an interactive form in the terminal. This
+   includes a variety of field types such as input boxes, checkboxes, radio
+   buttons, and select dropdowns.
+
+3. **Custom Validation**: Formulator comes with a default set of validation
+   rules, including checks for required fields, minimum and maximum lengths,
+   numeric and alphabetic values, and email format. However, you can also
+   define your own validation rules by extending the Validator class.
+
+4. **Flexible Layout**: Formulator uses the Composer class to layout the form
+   widgets. You can override the default Composer class to customize the layout
+   according to your needs.
+
+5. **Form Submission and Error Handling**: When the form is submitted,
+   Formulator validates the input values against the validation rules and
+   displays any errors in a pop-up window. If the form is valid, Formulator
+   exits and returns a dictionary with the form values. This allows for
+   seamless integration with your application logic.
+
+Supported Textual Widgets
+=========================
+
+Formulator's Composer class is designed to work with a variety of Textual
+widgets. Below is a list of the currently supported widgets:
+
+1. **Input**: A basic text input field for user input.
+
+2. **Checkbox**: A field that can be checked or unchecked by the user.
+
+3. **RadioSet**: A set of radio buttons, where the user can select one option
+   from several.
+
+4. **Select**: A dropdown field where the user can select one option from a
+   list.
+
+5. **Switch**: A toggle switch that can be turned on or off.
+
+6. **Button**: A clickable button, used in Formulator for form submission and
+   quitting the application.
+
+7. **Label**: A text label used for displaying field names and other
+   information.
+
+Please note that the appearance and behavior of these widgets can be customized
+by overriding the Composer class, giving you flexibility in creating the user
+interface for your form.
+
+
+Customization
+=============
+
+Formulator's behavior can be customized by providing your own Validator and
+Composer classes. Validator is used to check the form input values against the
+validation rules, and Composer is used to layout the form widgets.
 
 .. code-block:: python
 
-    blueprint = {
-        'form': {
-            'title': 'Form Title',
-            'fields': {
-                'first-name': {
-                    'label': 'First Name',
-                    'placeholder': 'Enter your First Name',
-                    'type': 'Input',
-                    'validate': {
-                        'required': True
-                    }
-                },
-                'last-name': {
-                    'label': 'Last Name',
-                    'placeholder': 'Enter your Last Name',
-                    'type': 'Input',
-                    'validate': {
-                        'required': True
-                    }
-                }
-            },
-            'buttons': {
-                'save': {
-                    'label': 'Save'
-                },
-                'quit': {
-                    'label': 'Quit'
-                }
-            }
-        }
-    }
+    from photon_platform.formulator import Formulator, Validator, Composer, load_blueprint
 
-    # Create and run the form
-    form = Formulator(blueprint)
-    return_values = form.run()
+    class MyValidator(Validator):
+        pass  # define your validation methods here
 
-    # Use the returned values as needed
-    print(return_values)
+    class MyComposer(Composer):
+        pass  # define your layout method here
 
-This blueprint creates a form with two text fields ('First Name' and 'Last
-Name') and two buttons ('Save' and 'Quit'). When the 'Save' button is clicked,
-the form will validate the input (checking that both fields are filled in), and
-then return the input.
+    blueprint = load_blueprint("blueprint.yaml")
+    form = Formulator(blueprint, validator=MyValidator(), composer=MyComposer())
+    form.run()
 
-
-Contact
-=======
-For questions, issues, or feature requests, please open an issue on the Formulator GitHub repository.
+More Information
+================
+For more information and examples, see the `Formulator GitHub page <https://github.com/photon-platform/formulator>`_.
 

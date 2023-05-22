@@ -28,11 +28,11 @@ form:
       type: RadioSet
       options:
         - Relative motion of conductors and fluxes
-        - Modial interaction of magneto-reluctance and capacitive diractance
-    base-plate-material:
-      label: Base Plate Material
-      placeholder: Enter the Material of the Base Plate
-      type: Input
+        - "Modial interaction of magneto-reluctance and capacitive diractance"
+    # base-plate-material:
+      # label: Base Plate Material
+      # placeholder: Enter the Material of the Base Plate
+      # type: Input
     spurving-bearings-alignment:
       label: Are the two spurving bearings in a direct line with the panametric fan?
       type: Switch
@@ -45,12 +45,6 @@ form:
     sidefumbling-prevention:
       label: Is sidefumbling effectively prevented?
       type: Switch
-    winding-type:
-      label: Type of Main Winding
-      placeholder: Enter the Type of the Main Winding
-      type: Input
-      validate:
-        required: true
     fluorescence-score-motion-required:
       label: Is Fluorescence Score Motion Required?
       type: Checkbox

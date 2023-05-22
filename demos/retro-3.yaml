@@ -1,0 +1,62 @@
+form:
+  title: Retro Encabulator Configurator
+  id: retro-encabulator
+  fields:
+    instrument-name:
+      label: Instrument
+      placeholder: Enter Name
+      type: Input
+      validate:
+        required: true
+        max_length: 8
+    inverse-reactive-current:
+      label: Reactive Current
+      type: Checkbox
+      option: Inverse
+    cardinal-grammeters:
+      label: Cardinal Grammmeters
+      type: Checkbox
+      option: Synchronize 
+    component-selection:
+      label: Component
+      type: Select
+      options:
+        - Dodge Gear/Bearing
+        - Reliance Motor
+        - A-B Control
+        - Rockwell Software
+    power-generation-method:
+      label: Power Gen. Method
+      type: RadioSet
+      options:
+        - Relative Motion
+        - Modial Interaction
+    # base-plate-material:
+      # label: Base Plate Mat.
+      # placeholder: Enter Material
+      # type: Input
+      # validate:
+        # required: true
+        # alphabetic: true
+    spurving-bearings-alignment:
+      label: Spurving Alignment
+      type: Switch
+    marzelvanes-count:
+      label: Marzelvanes No.
+      placeholder: Enter Count
+      type: Input
+      validate:
+        required: true
+        numeric: true
+        min_value: 0
+        max_value: 100
+    sidefumbling-prevention:
+      label: Sidefumbling Prevention
+      type: Switch
+    fluorescence-score-motion-required:
+      label: Fluorescence Score Motion
+      type: Checkbox
+    milford-trenions-operation:
+      label: Milford Trenions Ops
+      type: Checkbox
+

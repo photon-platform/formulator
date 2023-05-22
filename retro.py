@@ -12,8 +12,8 @@ def run_form(blueprint_file):
 
 def main():
     run_form("retro-2.yaml")
-    run_form("flux-capacitor.yaml")
-    run_form("millenium-falcon.yaml")
+    #  run_form("flux-capacitor.yaml")
+    #  run_form("millenium-falcon.yaml")
 
 
 if __name__ == "__main__":

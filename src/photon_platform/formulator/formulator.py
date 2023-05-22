@@ -26,6 +26,8 @@ from textual.widgets import (
 )
 from textual.containers import VerticalScroll, Horizontal
 
+from .modal import ErrorScreen
+
 
 def load_blueprint(filename):
     with open(filename, "r") as f:
@@ -129,9 +131,11 @@ class Formulator(App):
 
         # If there are validation errors, print or handle them as needed
         if validation_errors:
-            print("Validation Errors:")
-            for error in validation_errors:
-                print(error)
+            #  print("Validation Errors:")
+            #  for error in validation_errors:
+                #  print(error)
+            self.push_screen(ErrorScreen(validation_errors))
+            
         else:
             #  print(context)  # Replace this line with code to use context as needed
             self.exit(context)

@@ -23,6 +23,8 @@ from textual.widgets import (
     Footer,
 )
 from textual.containers import VerticalScroll, Horizontal
+from rich.text import Text
+from rich import print
 
 from .modal import ErrorScreen
 from .validator import Validator
@@ -48,6 +50,7 @@ class Formulator(App):
     TITLE = "FORMULATOR"
     BINDINGS = [
         ("ctrl+s", "save", "save"),
+        ("ctrl+p", "screenshot", "screenshot"),
         ("ctrl+q", "quit", "quit"),
     ]
 
@@ -121,3 +124,24 @@ class Formulator(App):
 
         else:
             self.exit(context)
+
+    def action_screenshot(self, path: str = "./") -> None:
+        """
+        Save an SVG "screenshot". This action will save an SVG file containing
+        the current contents of the screen.
+
+        Args:
+            filename (str | None, optional): Filename of screenshot, or None to auto-generate. Defaults to None.
+            path (str, optional): Path to directory. Defaults to "./".
+        """
+        self.bell()
+
+        form_id = self.form_blueprint["form"]["id"]
+        filename = f'{form_id}.svg'
+        path = self.save_screenshot(filename, path)
+
+        message = Text.assemble("Screenshot saved to ", (f"'{path}'", "bold green"))
+        print(message)
+        #  self.add_note(message)
+        #  self.screen.mount(Notification(message))
+

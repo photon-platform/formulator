@@ -124,6 +124,25 @@ Once you have your blueprint, you can run Formulator with the `--blueprint` opti
 
 The `--blueprint` option should be a path to a YAML file that contains your form blueprint. This will launch the Formulator app and display your form in the terminal. After you fill out and submit the form, the values you entered will be printed to the terminal as YAML.
 
+Demos
+-----
+
+In the `demos` directory, you will find ready-made examples showcasing the power and flexibility of Formulator. These examples serve as a reference guide for creating your own complex forms, as well as demonstrating Formulator's functionality in configuring advanced machinery.
+
+1. Retro Encabulator Configurator (retro_encabulator.py / retro_encabulator.yaml)
+
+   This is a brilliant example of Formulator's capacity to streamline the configuration of advanced devices, such as the Retro Encabulator. With its modial interaction of magneto-reluctance and capacitive directance, the Retro Encabulator is a wonder of modern engineering. Configure everything from the cardinal grammeters synchronization to the number of hydrocoptic marzelvanes.
+
+2. Flux Capacitor Configurator (flux_capacitor.py / flux_capacitor.yaml)
+
+   Dive into time travel technology with Formulator, as it allows you to customize the settings of your own Flux Capacitor. Ensure that your Flux Capacitor is always set to the appropriate jigowatt level, and that your time circuits are functioning optimally. Remember, your future is whatever you make it, so make it a good one with Formulator.
+
+3. Millenium Falcon Console (millenium_falcon.py / millenium_falcon.yaml)
+
+   Step into the pilot's seat of the fastest hunk of junk in the galaxy with Formulator's Millenium Falcon console configurator. Tune the hyperdrive parameters, adjust the deflector shields, and calibrate the inertial dampeners to ensure your next Kessel Run is under twelve parsecs. Remember, she may not look like much, but she's got it where it counts, kid.
+
+All demos include a Python script and a corresponding YAML blueprint. You can run the Python script directly to display the form in your terminal, or you can use the `formulator --blueprint` command with the YAML blueprint to achieve the same result.
+
 Customization
 =============
 

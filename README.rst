@@ -145,6 +145,67 @@ In the `demos` directory, you will find ready-made examples showcasing the power
 
 All demos include a Python script and a corresponding YAML blueprint. You can run the Python script directly to display the form in your terminal, or you can use the `formulator --blueprint` command with the YAML blueprint to achieve the same result.
 
+Writing Blueprints
+------------------
+
+Creating a form with Formulator begins with writing a blueprint in YAML format. This blueprint defines the form's structure, the fields it contains, and the validation rules for each field.
+
+Formulator blueprints consist of a single 'form' object, which can have the following properties:
+
+- `title`: The title of the form.
+- `id`: A unique identifier for the form.
+- `fields`: An object where each property represents a form field. The name of the property is used as the field's ID.
+
+Each field in the 'fields' object can have the following properties:
+
+- `label`: The label for the field, displayed to the user.
+- `type`: The type of the field, which determines the kind of input the field accepts. It can be one of the following:
+    - `Input`: A text input field.
+    - `Checkbox`: A checkbox field.
+    - `Select`: A dropdown select field.
+    - `RadioSet`: A radio button set.
+    - `Switch`: A toggle switch.
+    - `Button`: A button.
+- `placeholder` (optional): A placeholder text for `Input` fields, displayed when the field is empty.
+- `options` (optional): A list of options for `Select` and `RadioSet` fields.
+- `option` (optional): The label for the `Checkbox` field's option.
+- `validate` (optional): An object where each property represents a validation rule. The name of the property is used as the rule's name, and its value as the rule's argument. Available validation rules include `required`, `min_length`, `max_length`, `numeric`, `alphabetic`, `min_value`, `max_value`, and `email`.
+
+Here's an example of a simple blueprint:
+
+.. code-block:: yaml
+
+    form:
+      title: Example Form
+      id: example-form
+      fields:
+        name:
+          label: Name
+          type: Input
+          validate:
+            required: true
+            min_length: 2
+        age:
+          label: Age
+          type: Input
+          validate:
+            required: true
+            numeric: true
+            min_value: 0
+        color:
+          label: Favorite Color
+          type: Select
+          options:
+            - Red
+            - Green
+            - Blue
+            - Yellow
+            - Purple
+
+This blueprint defines a form with the title "Example Form" and two fields, 'Name' and 'Age'. The 'Name' field is a text input field that requires at least two characters, and the 'Age' field is also a text input field but requires a numeric value. The 'Favorite Color' field is a dropdown select field with five color options.
+
+For more complex examples, refer to the demos provided in the 'demos' directory of the Formulator repository.
+
 Customization
 =============
 

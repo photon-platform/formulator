@@ -11,7 +11,7 @@ validates the input values against the validation rules and displays any
 errors. It's a handy tool for collecting user input from the terminal in a
 structured and validated manner.
 
-.. note::
+.. warning::
    this is a very early concept and is likely to change frequently
 
 Installation

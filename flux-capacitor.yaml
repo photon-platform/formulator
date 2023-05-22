@@ -1,0 +1,49 @@
+form:
+  title: Flux Capacitor Configurator
+  id: flux-capacitor
+  fields:
+    capacitor-name:
+      label: Name of Capacitor
+      placeholder: Enter the Name of the Capacitor
+      type: Input
+      validate:
+        required: true
+    plutonium-requirement:
+      label: Direct Plutonium Requirement
+      type: Switch
+    power-generation-method:
+      label: Power Generation Method
+      type: RadioSet
+      options:
+        - Plutonium
+        - Mr. Fusion Home Energy Reactor
+    energy-output:
+      label: Direct Energy Output
+      placeholder: Enter the Energy Output (e.g. 1.21 Gigawatts)
+      type: Input
+    destination-time:
+      label: Direct Destination Time
+      placeholder: Enter the Destination Time (YYYY/MM/DD HH:MM)
+      type: Input
+      validate:
+        required: true
+    current-time:
+      label: Direct Current Time
+      placeholder: Enter the Current Time (YYYY/MM/DD HH:MM)
+      type: Input
+      validate:
+        required: true
+    time-travel-enablement:
+      label: Direct Time Travel Enablement
+      type: Switch
+    vehicle-integration:
+      label: Direct Vehicle Integration
+      type: Select
+      options:
+        - DeLorean DMC-12
+        - Train
+        - Other
+    hover-conversion:
+      label: Direct Hover Conversion Requirement
+      type: Switch
+

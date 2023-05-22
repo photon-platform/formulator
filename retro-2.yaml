@@ -1,0 +1,60 @@
+form:
+  title: Retro Encabulator Configurator
+  id: retro-encabulator
+  fields:
+    instrument-name:
+      label: Name of Instrument
+      placeholder: Enter the Name of the Instrument
+      type: Input
+      validate:
+        required: true
+    inverse-reactive-current:
+      label: Provide Inverse Reactive Current
+      type: Checkbox
+    cardinal-grammeters:
+      label: Cardinal Grammeters
+      type: Checkbox
+      option: Synchronize 
+    component-selection:
+      label: Component Selection
+      type: Select
+      options:
+        - Dodge gears and bearings
+        - Reliance Electric motors
+        - Allen-Bradley controls
+        - Rockwell Software
+    power-generation-method:
+      label: Power Generation Method
+      type: RadioSet
+      options:
+        - Relative motion of conductors and fluxes
+        - Modial interaction of magneto-reluctance and capacitive diractance
+    base-plate-material:
+      label: Base Plate Material
+      placeholder: Enter the Material of the Base Plate
+      type: Input
+    spurving-bearings-alignment:
+      label: Are the two spurving bearings in a direct line with the panametric fan?
+      type: Switch
+    marzelvanes-count:
+      label: Number of Hydrocoptic Marzelvanes
+      placeholder: Enter the Number of Hydrocoptic Marzelvanes
+      type: Input
+      validate:
+        required: true
+    sidefumbling-prevention:
+      label: Is sidefumbling effectively prevented?
+      type: Switch
+    winding-type:
+      label: Type of Main Winding
+      placeholder: Enter the Type of the Main Winding
+      type: Input
+      validate:
+        required: true
+    fluorescence-score-motion-required:
+      label: Is Fluorescence Score Motion Required?
+      type: Checkbox
+    milford-trenions-operation:
+      label: Used in the operation of Milford Trenions?
+      type: Checkbox
+

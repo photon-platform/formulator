@@ -1,0 +1,55 @@
+form:
+  title: Millennium Falcon Configurator
+  id: millennium-falcon
+  fields:
+    spaceship-name:
+      label: Name of Spaceship
+      placeholder: Enter the Name of the Spaceship
+      type: Input
+      validate:
+        required: true
+    hyperdrive-system:
+      label: Hyperdrive System Installed
+      type: Switch
+    hyperdrive-class:
+      label: Hyperdrive Class
+      type: RadioSet
+      options:
+        - Class 1
+        - Class 2
+        - Class 0.5 (modified)
+    weapons-system:
+      label: Weapons System
+      type: Select
+      options:
+        - Quad laser cannons
+        - Concussion missile tubes
+        - Blaster cannons
+    shield-generator:
+      label: Shield Generator Installed
+      type: Switch
+    navigation-computer:
+      label: Navigation Computer Installed
+      type: Switch
+    sensor-suite:
+      label: Sensor Suite
+      type: Input
+      placeholder: Enter the Sensor Suite Details
+    smuggling-compartments:
+      label: Smuggling Compartments Installed
+      type: Switch
+    maintenance-level:
+      label: Maintenance Level
+      type: Input
+      placeholder: Enter the Maintenance Level
+    crew-capacity:
+      label: Crew Capacity
+      placeholder: Enter the Crew Capacity
+      type: Input
+      validate:
+        required: true
+    escape-pods:
+      label: Number of Escape Pods
+      placeholder: Enter the Number of Escape Pods
+      type: Input
+

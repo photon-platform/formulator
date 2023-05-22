@@ -1,0 +1,60 @@
+form:
+  title: Retro Encabulator Configuration Form
+  id: retro-encabulator-1
+  fields:
+    inverse-reactive-current:
+      label: Inverse Reactive Current
+      placeholder: Enter amount of Inverse Reactive Current
+      type: Input
+      validate:
+        required: true
+    cardinal-grammeters:
+      label: Cardinal Grammeters
+      type: Checkbox
+      option: Synchronize
+    dodge-gears-and-bearings:
+      label: Dodge Gears and Bearings Status
+      type: RadioSet
+      options:
+        - Operational
+        - Needs Maintenance
+        - Replacement Required
+    modial-interaction:
+      label: Modial Interaction
+      type: Select
+      options:
+        - Magneto-Reluctance
+        - Capacitive Diractance
+    base-plate:
+      label: Base Plate Material
+      placeholder: Enter material of base plate
+      type: Input
+    spurving-bearings:
+      label: Spurving Bearings Alignment
+      type: RadioSet
+      options:
+        - In Line
+        - Not In Line
+    hydrocoptic-marzelvanes:
+      label: Number of Hydrocoptic Marzelvanes
+      placeholder: Enter number of Hydrocoptic Marzelvanes
+      type: Input
+    side-fumbling-prevention:
+      label: Is Side Fumbling Effectively Prevented?
+      type: Checkbox
+    main-winding-type:
+      label: Main Winding Type
+      type: Select
+      options:
+        - Normal Lotus O-Deltoid
+        - Other
+    fluorescence-score-motion:
+      label: Use Fluorescence Score Motion?
+      type: Checkbox
+    sinusoidal-depleneration-reduction:
+      label: Reduce Sinusoidal Depleneration
+      type: Checkbox
+    milford-trenions-operation:
+      label: Used in Operation of Milford Trenions?
+      type: Checkbox
+

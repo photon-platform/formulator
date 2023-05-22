@@ -12,3 +12,29 @@ form:
       label: Last Name
       placeholder: Enter your Last Name
       type: Input
+    do-it:
+      label: Do it?
+      type: Checkbox
+    radio-1:
+      label: size
+      type: RadioSet
+      options:
+        - small
+        - medium
+        - large
+    select-1:
+      label: interface
+      type: Select
+      options:
+        - internal
+        - external
+    switch-1:
+      label: turbo
+      type: Switch
+    # optionlist-1:
+      # label: parameters
+      # type: OptionList
+      # options:
+        # - open
+        # - closed
+        # - toggle

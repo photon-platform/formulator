@@ -11,7 +11,19 @@ methods.
 
 import yaml
 from textual.app import App, ComposeResult
-from textual.widgets import Button, Input, Label, Header, Footer
+from textual.widgets import (
+    Button,
+    Input,
+    Label,
+    Checkbox,
+    RadioSet,
+    RadioButton,
+    Select,
+    Switch,
+    OptionList,
+    Header,
+    Footer,
+)
 from textual.containers import VerticalScroll, Horizontal
 
 
@@ -38,27 +50,38 @@ class Formulator(App):
     def compose(self) -> ComposeResult:
         yield Header()
         with VerticalScroll(classes="form"):
-            yield Label("test")
-            yield Input(id="test")
             fields = self.form_blueprint["form"]["fields"]
-            for field in fields:
-                widget_type = fields[field]["type"]
+            for field_id, field in fields.items():
+                widget_type = field["type"]
                 if widget_type == "Input":
-                    yield Label(fields[field]["label"])
-                    yield Input(id=field)
+                    yield Label(field["label"])
+                    placeholder = field.get("placeholder", "")
+                    print(f"{placeholder=}")
+                    yield Input(id=field_id, placeholder=placeholder)
                 elif widget_type == "Checkbox":
-                    yield Checkbox(fields[field]["label"], id=field)
+                    yield Label(field["label"])
+                    option = field.get("option", "activate")
+                    yield Checkbox(option, id=field_id)
                 elif widget_type == "RadioSet":
-                    yield RadioSet(*fields[field]["options"], id=field)
+                    yield Label(field["label"])
+                    yield RadioSet(*field["options"], id=field_id)
                 elif widget_type == "Select":
-                    yield Select(*fields[field]["options"], id=field)
+                    select_tuples = [
+                        (label, id) for id, label in enumerate(field["options"])
+                    ]
+                    yield Label(field["label"])
+                    yield Select(select_tuples, id=field_id)
                 elif widget_type == "OptionList":
-                    yield OptionList(*fields[field]["options"], id=field)
+                    yield Label(field["label"])
+                    yield OptionList(*field["options"], id=field_id)
+                elif widget_type == "Switch":
+                    yield Label(field["label"])
+                    yield Switch(id=field_id)
 
         with Horizontal(classes="actions"):
             #  buttons = self.form_blueprint["form"]["buttons"]
             #  for button in buttons:
-                #  yield Button(buttons[button]["label"], id=button)
+            #  yield Button(buttons[button]["label"], id=button)
             yield Button("save", id="save")
             yield Button("quit", id="quit")
 
@@ -77,7 +100,17 @@ class Formulator(App):
         validation_errors = []
 
         for field_id in self.field_ids:
-            value = self.query_one(f"#{field_id}").value
+            field = fields[field_id]
+            if field["type"] == "RadioSet":
+                index = self.query_one(f"#{field_id}").pressed_index
+                if index == -1:
+                    value = (index, "")
+                else:
+                    value = (index, field["options"][index])
+
+            else:
+                value = self.query_one(f"#{field_id}").value
+            print(field, value)
             context[field_id] = value
 
             # Perform validation checks

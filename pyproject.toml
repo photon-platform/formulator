@@ -18,8 +18,8 @@ dependencies = [
     "jinja2",
 ]
 
-# [project.scripts]
-# formulator = "formulator.app:run"
+[project.scripts]
+formulator = "photon_platform.formulator.app:run"
 
 [build-system]
 requires = ["setuptools", "setuptools-scm"]

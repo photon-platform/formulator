@@ -11,6 +11,9 @@ validates the input values against the validation rules and displays any
 errors. It's a handy tool for collecting user input from the terminal in a
 structured and validated manner.
 
+.. note::
+   this is a very early concept and is likely to change frequently
+
 Installation
 ============
 Install Formulator with pip:
@@ -47,7 +50,8 @@ Then, in your Python script, load the blueprint and pass it to the Formulator cl
 
     blueprint = load_blueprint("blueprint.yaml")
     form = Formulator(blueprint)
-    form.run()
+    reply = form.run()
+
 
 Features
 ========
@@ -106,6 +110,19 @@ Please note that the appearance and behavior of these widgets can be customized
 by overriding the Composer class, giving you flexibility in creating the user
 interface for your form.
 
+
+Command Line Usage
+==================
+
+You can use Formulator from the command line using the `formulator` command.
+
+Once you have your blueprint, you can run Formulator with the `--blueprint` option:
+
+.. code-block:: bash
+
+    formulator --blueprint path/to/your/blueprint.yaml
+
+The `--blueprint` option should be a path to a YAML file that contains your form blueprint. This will launch the Formulator app and display your form in the terminal. After you fill out and submit the form, the values you entered will be printed to the terminal as YAML.
 
 Customization
 =============

@@ -129,8 +129,8 @@ Demos
 
 In the `demos` directory, you will find ready-made examples showcasing the power and flexibility of Formulator. These examples serve as a reference guide for creating your own complex forms, as well as demonstrating Formulator's functionality in configuring advanced machinery.
 
-.. image:: retro-encabulator.png
-   
+.. image:: https://raw.githubusercontent.com/photon-platform/formulator/master/retro-encabulator.png
+
 1. Retro Encabulator Configurator (retro_encabulator.py / retro_encabulator.yaml)
 
    This is a brilliant example of Formulator's capacity to streamline the configuration of advanced devices, such as the Retro Encabulator. With its modial interaction of magneto-reluctance and capacitive directance, the Retro Encabulator is a wonder of modern engineering. Configure everything from the cardinal grammeters synchronization to the number of hydrocoptic marzelvanes.

@@ -129,7 +129,7 @@ Demos
 
 In the `demos` directory, you will find ready-made examples showcasing the power and flexibility of Formulator. These examples serve as a reference guide for creating your own complex forms, as well as demonstrating Formulator's functionality in configuring advanced machinery.
 
-.. image:: retro-encabulator.svg
+.. image:: retro-encabulator.png
    
 1. Retro Encabulator Configurator (retro_encabulator.py / retro_encabulator.yaml)
 

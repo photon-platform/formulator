@@ -1,18 +1,19 @@
 from ablog.conf import *
+from photon_platform.formulator import __version__
 
-org = ""
-org_name = ""
+org = "photon-platform"
+org_name = "PHOTON platform"
 
-repo = ""
-repo_name = ""
+repo = "formulator"
+repo_name = "Formulator"
 
 blog_title = f"{org_name} • {repo_name}"
 project = f"{org_name}<br/>•<br/>{repo_name}"
-version = ""  # The short X.Y version.
+version = __version__
 release = ""  # The full version, including alpha/beta/rc tags.
 
 copyright = f"{year}, {org_name}"
-author = ""
+author = org_name
 
 # Base URL for the website, required for generating feeds.
 # e.g. blog_baseurl = "http://example.com/"

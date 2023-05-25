@@ -1,4 +1,4 @@
-import yaml
+
 from textual.app import App, ComposeResult
 from textual.widgets import (
     Button,
@@ -92,16 +92,3 @@ class Composer:
     def create_switch(self, field_id, field):
         yield Label(field["label"])
         yield Switch(id=field_id)
-class Formulator(App):
-    def __init__(self, form_blueprint, validator=None, composer=None):
-        super().__init__()
-        self.form_blueprint = form_blueprint
-        self.title = self.form_blueprint["form"]["title"]
-        self.validator = validator if validator else Validator()
-        self.composer = composer if composer else Composer(form_blueprint)
-
-    def compose(self) -> ComposeResult:
-        return self.composer.compose()
-
-    # The rest of the Formulator methods...
-

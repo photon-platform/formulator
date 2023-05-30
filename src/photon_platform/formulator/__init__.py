@@ -10,6 +10,7 @@ tools for creating Textual forms
 """
 
 from .formulator import *
+from .formulator_modal import *
 
 __author__ = "phiarchitect"
 __maintainer__ = "PHOTON platform"

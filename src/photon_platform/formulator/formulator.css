@@ -33,7 +33,7 @@ Screen {
 }
 
 
-ErrorScreen {
+ModalScreen, ErrorScreen {
     align: center middle;
 }
 

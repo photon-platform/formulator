@@ -1,9 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-  <id>https://photon-platform.github.io/formulator</id>
-  <title>PHOTON platform • Formulator</title>
-  <updated>2023-05-24T14:00:28.326027+00:00</updated>
-  <link href="https://photon-platform.github.io/formulator"/>
-  <link href="https://photon-platform.github.io/formulator/log/atom.xml" rel="self"/>
-  <generator uri="https://ablog.readthedocs.org/" version="unknown.dev">ABlog</generator>
-</feed>

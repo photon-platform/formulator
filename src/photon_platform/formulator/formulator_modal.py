@@ -110,10 +110,11 @@ class FormulatorModal(ModalScreen):
                         )
 
         if validation_errors:
-            self.push_screen(ErrorScreen(validation_errors))
+            #  self.push_screen(ErrorScreen(validation_errors))
+            self.dismiss(validation_errors)
 
         else:
-            self.exit(context)
+            self.dismiss(context)
 
     def action_screenshot(self, path: str = "./") -> None:
         """

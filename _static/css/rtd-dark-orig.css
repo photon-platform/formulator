@@ -8,6 +8,8 @@
  *
  * Modified by Aloïs Dreyfus: 20200527-1037
  * Modified by Erik Kalkoken: 20220615
+ *
+ * test
  */
 
 @media (prefers-color-scheme: dark) {
@@ -20,13 +22,8 @@
   }
 
   .wy-nav-content {
-    background: #222;
+    background: #3c3c3c;
     color: aliceblue;
-  }
-
-  .wy-nav-side {
-    background: #111;
-    /* color: aliceblue; */
   }
 
   .method dt, .class dt, .data dt, .attribute dt, .function dt,
@@ -45,8 +42,7 @@
   }
 
   .wy-nav-content-wrap {
-    /* background-color: rgba(0, 0, 0, 0.6) !important; */
-    background-color: #000 !important;
+    background-color: rgba(0, 0, 0, 0.6) !important;
   }
 
   .sidebar {
@@ -98,7 +94,7 @@
   /* Name.Variable */
 
   body {
-    text-align: justify;
+    /* text-align: justify; */
   }
 
   .rst-content .section .admonition ul {

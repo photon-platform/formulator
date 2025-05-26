@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
   <id>https://photon-platform.github.io/formulator</id>
   <title>photon-platform • formulator</title>
-  <updated>2024-12-08T22:09:17.371288+00:00</updated>
+  <updated>2025-05-26T23:38:50.066150+00:00</updated>
   <link href="https://photon-platform.github.io/formulator"/>
   <link href="https://photon-platform.github.io/formulator/log/atom.xml" rel="self"/>
   <generator uri="https://ablog.readthedocs.org/" version="unknown.dev">ABlog</generator>

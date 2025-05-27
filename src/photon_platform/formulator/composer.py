@@ -210,10 +210,10 @@ class Composer:
         path = field.get("path", ".")
         show_root = field.get("show_root", True)
         disabled = field.get("disabled", False)
+        # show_root is not a direct constructor argument for DirectoryTree
         yield DirectoryTree(
             path=path,
             id=field_id,
-            show_root=show_root,
             disabled=disabled
         )
 

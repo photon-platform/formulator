@@ -139,7 +139,7 @@ class Composer:
         read_only = field.get("read_only", False)
         show_line_numbers = field.get("show_line_numbers", False)
         tab_behavior = field.get("tab_behavior", "focus")
-        indent_width = field.get("indent_width", 4)
+        # indent_width is not a direct constructor argument for TextArea
         yield TextArea(
             text=text,
             id=field_id,
@@ -149,7 +149,6 @@ class Composer:
             read_only=read_only,
             show_line_numbers=show_line_numbers,
             tab_behavior=tab_behavior,
-            indent_width=indent_width,
         )
 
     def create_maskedinput(self, field_id, field):

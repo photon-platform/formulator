@@ -157,7 +157,7 @@ class Composer:
             raise ValueError("MaskedInput requires a 'template' attribute.")
         template = field["template"]
         placeholder = field.get("placeholder", "")
-        password = field.get("password", False)
+        # password is not a direct constructor argument for MaskedInput
         restrict = field.get("restrict", None)
         # 'type' is a property of Input, not MaskedInput directly, but can be used by Input parent
         # However, MaskedInput does not inherit 'type' in the same way.
@@ -171,7 +171,6 @@ class Composer:
             template=template,
             id=field_id,
             placeholder=placeholder,
-            password=password,
             restrict=restrict,
             max_length=max_length,
             validators=validators,

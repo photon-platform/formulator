@@ -162,7 +162,7 @@ class Composer:
         # 'type' is a property of Input, not MaskedInput directly, but can be used by Input parent
         # However, MaskedInput does not inherit 'type' in the same way.
         # We will not pass 'type' to MaskedInput.
-        max_length = field.get("max_length", 0)
+        # max_length is not a direct constructor argument for MaskedInput
         validators = field.get("validators", None)
         validate_on = field.get("validate_on", ("blur", "changed", "submitted"))
         valid_empty = field.get("valid_empty", False)
@@ -171,7 +171,6 @@ class Composer:
             template=template,
             id=field_id,
             placeholder=placeholder,
-            max_length=max_length,
             validators=validators,
             validate_on=validate_on,
             valid_empty=valid_empty,

@@ -31,6 +31,84 @@ form:
     switch-1:
       label: turbo
       type: Switch
+    detailed_description:
+      type: TextArea
+      label: "Detailed Description"
+      text: "Enter your multi-line description here."
+      soft_wrap: true
+      show_line_numbers: true
+      theme: "monokai"
+    phone_number:
+      type: MaskedInput
+      label: "Phone Number"
+      template: "(999) 999-9999"
+      placeholder: "(123) 456-7890"
+    preferred_topics:
+      type: SelectionList
+      label: "Preferred Topics (select multiple)"
+      options:
+        - ["Technology", "tech", true]
+        - ["Science", "sci"]
+        - ["Art", "art", true]
+        - ["Sports", "spo"]
+    select_file:
+      type: DirectoryTree
+      label: "Select a File or Directory"
+      path: "." # Start in the current directory
+      show_root: true
+    project_structure:
+      type: Tree
+      label: "Project Structure"
+      root_label: "My Project"
+      show_root: true
+      nodes:
+        - label: "src"
+          data: "source_folder"
+          children:
+            - label: "main.py"
+              data: "main_file"
+            - label: "utils.py"
+              data: "utils_file"
+        - label: "docs"
+          data: "docs_folder"
+          children:
+            - label: "index.md"
+              data: "index_md"
+    select_user:
+      type: DataTable
+      label: "Select a User"
+      cursor_type: "row" # Explicitly for row selection
+      columns:
+        - "ID"
+        - "Name"
+        - "Email"
+      rows:
+        - ["user101", "Alice Wonderland", "alice@example.com"]
+        - ["user102", "Bob The Builder", "bob@example.com"]
+        - ["user103", "Charlie Brown", "charlie@example.com"]
+      row_keys: ["u101", "u102", "u103"] # Example with row keys
+      zebra_stripes: true
+    select_task:
+      type: ListView
+      label: "Select a Task"
+      items:
+        - "Task 1: Implement feature X"
+        - "Task 2: Fix bug Y"
+        - "Task 3: Write documentation for Z"
+      initial_index: 0 # Optional: highlight the first item initially
+  buttons:
+    submit_form: # This will be the button's ID
+      label: "Submit"
+      variant: "primary"
+      action: "submit_data" # Example action
+    cancel_form: # This will be the button's ID
+      label: "Cancel"
+      variant: "error"
+      action: "cancel_operation"
+    reset_form:
+      label: "Reset"
+      variant: "warning"
+      disabled: true
     # optionlist-1:
       # label: parameters
       # type: OptionList

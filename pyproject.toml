@@ -16,6 +16,7 @@ dependencies = [
     "textual",
     "rich",
     "jinja2",
+    "pyyaml",
 ]
 
 [project.scripts]

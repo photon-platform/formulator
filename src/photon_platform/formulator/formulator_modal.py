@@ -40,8 +40,7 @@ class FormulatorModal(ModalScreen):
     TITLE = "FORMULATOR"
     BINDINGS = [
         ("ctrl+s", "save", "save"),
-        ("ctrl+p", "screenshot", "screenshot"),
-        ("ctrl+q", "quit", "quit"),
+        ("esc, ctrl+q", "quit", "quit"),
     ]
 
     def __init__(self, form_blueprint, validator=None, composer=None):
@@ -71,7 +70,7 @@ class FormulatorModal(ModalScreen):
         if event.button.id == "save":
             self.action_save()
         elif event.button.id == "quit":
-            self.exit()
+            self.dismiss()
 
     def action_save(self):
         """

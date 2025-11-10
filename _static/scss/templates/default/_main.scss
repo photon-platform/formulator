@@ -1,0 +1,89 @@
+
+  > main {
+    @import 'breadcrumbs';
+    display: flex;
+    flex-flow: column nowrap;
+
+    > header {
+    }
+
+    > article {
+      padding: var(--fitz-2);
+
+      > figure {
+      }
+    }
+
+    > .collection {
+      font-size: .9em;
+      display: grid;
+      // grid-auto-columns: minmax(auto, 24em);
+      grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
+
+      > * {
+        background: var(--bg);
+        margin: var(--fitz);
+        padding: var(--fitz);
+      }
+
+      > header {
+        grid-row: 1;
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      > article.excerpt {
+        // @include article-card;
+        display: flex;
+        justify-content: space-between;
+
+        figure {
+          max-width: 12em;
+        }
+        .content {
+          display: none;
+        }
+
+        footer {
+          display: none;
+        }
+      }
+
+      &.expand {
+        > article.excerpt {
+          flex-flow: column nowrap;
+
+          figure {
+            max-width: none;
+          }
+
+          .content {
+            display: block;
+          }
+
+          footer {
+            display: flex;
+          }
+        }
+      }
+
+      &.modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        background: black;
+      }
+
+
+    }
+
+    > section.form {
+      form {
+        // width: 100%;
+      }
+    }
+  }

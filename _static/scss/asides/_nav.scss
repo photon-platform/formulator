@@ -1,0 +1,135 @@
+nav {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: stretch;
+
+  label {
+    // width: 100%;
+    align-self: stretch;
+    cursor: pointer;
+    display: flex;
+    // margin: var(--fitz-half);
+    margin: 0;
+    // padding:  var(--fitz-half);
+    padding:  var(--fitz);
+    justify-content: space-between;
+
+    &::after {
+      display: block;
+      // align-self: flex-end;
+      text-align: right;
+
+      font-family: var(--font-icon);
+      content: 'v';
+    }
+
+    &:hover {
+      background: var(--color-key-lighter);
+    }
+  }
+
+  input {
+    display: none;
+
+    &:checked {
+      & ~ label::after {
+        content: '^';
+      }
+      & ~ ul {
+        display: block;
+        // transform: scaleY(1);
+      }
+    }
+  }
+
+  ul {
+    display: none;
+    // transform: scaleY(0);
+    transform-origin: top;
+    width: 100%;
+    margin: 0;
+    // padding:  var(--fitz-half);
+
+    li {
+      margin: 0;
+      padding: 0;
+      // margin-left: var(--fitz-2);
+
+      &:hover {
+        // background: var(--color-key);
+        // color: white;
+      }
+      + li {
+        // margin-top: var(--fitz);
+      }
+    }
+  }
+
+  a {
+    // display: flex;
+    display: flex;
+    --offset: 1em;
+    // line-height: 1.1;
+    padding:  var(--fitz);
+    // padding-left: var(--offset);
+    flex-basis: 100%;
+
+    &::before, &::after {
+      padding-top: .1em;
+      content: ' ';
+      display: inline-block;
+      width: var(--offset);
+      flex: 0 0 var(--offset);
+      // margin-left: calc(var(--offset) * -1);
+      font-family: var(--font-icon);
+      text-align: center;
+      
+    }
+
+    &[aria-selected="true"] {
+      font-weight: 700;
+      &::before {
+        content: '>';
+      }
+      &::after {
+        content: '<';
+      }
+    }
+
+    &[aria-current="true"] {
+      font-weight: 700;
+      &::after {
+        // content: var(--bullet);
+        // text-align: center;
+      }
+    }
+  }
+
+  @media (min-width: 48em) {
+    label {
+      &::after {
+        font-family: var(--font-icon);
+        content: '^';
+      }
+    }
+
+    input {
+      &:checked {
+        & ~ label::after {
+          content: 'v';
+        }
+
+        & ~ ul {
+          display: none;
+          // transform: scaleY(0);
+        }
+      }
+    }
+
+    ul {
+      display: block;
+      // transform: scaleY(1);
+    }
+  }
+}
+

@@ -1,0 +1,32 @@
+
+> footer {
+  grid-area: footer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > aside,
+  > nav {
+    ul, li {
+      display: flex;
+      flex-wrap: wrap;
+
+      h3 {
+      }
+    }
+
+    &.article-categories {
+      a {
+        // letter-spacing: .25em;
+        // padding-left: .25em;
+        text-transform: uppercase;
+      }
+    }
+
+    &.article-tags {
+      a {
+        font-style: italic;
+      }
+    }
+  }
+}

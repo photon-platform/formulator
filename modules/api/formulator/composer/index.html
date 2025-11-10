@@ -1,0 +1,177 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulator.composer &mdash; Project name not set  documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=ea5fcf70" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/css/styles.css?v=d4fd7cae" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../../../../index.html">
+        <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+      </a>
+      <div class="org-repo">
+        <span class="org">photon-platform</span>
+        •
+        <span class="repo">formulator</span>
+      </div>
+    </div>
+    <nav aria-label="Header">
+      <input type="checkbox" id="nav-Header-toggle" >
+      <label for="nav-Header-toggle" >Header</label>
+      <ul>
+        <li>
+          <a href="../../../../log/index.html"  >log</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="motto"></div>
+  </header>
+  <main>
+
+    <article>
+      <nav class="context">
+        <div class="prev">
+           <a href="../app/index.html" class="prev" title="formulator.app" >Prev</a>
+        </div>
+        <div class="next">
+          <a href="../formulator/index.html" class="next" title="formulator.formulator" >Next</a>
+        </div>
+      </nav>
+      <nav class="breadcrumbs">
+        <span><a href="../../../../index.html">Home</a></span>
+          <span>/</span>
+        <span><a href="../../index.html">API Reference</a></span>
+          <span>/</span>
+        <span><a href="../index.html">formulator</a></span>
+        <span>/</span>
+        <span>formulator.composer</span>
+      </nav>
+      <div class="content">
+          <section id="module-formulator.composer">
+<span id="formulator-composer"></span><h1>formulator.composer<a class="headerlink" href="#module-formulator.composer" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#formulator.composer.Composer" title="formulator.composer.Composer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Composer</span></code></a></p></td>
+<td><p>The Composer class is used to dynamically create a form using a YAML blueprint and the Textual library.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="formulator.composer.Composer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">formulator.composer.</span></span><span class="sig-name descname"><span class="pre">Composer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form_blueprint</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer" title="Link to this definition">¶</a></dt>
+<dd><p>The Composer class is used to dynamically create a form using a YAML blueprint and the Textual library.</p>
+<p>This class takes a form blueprint as input and uses it to generate the structure and components
+of the form. Each form field and button in the blueprint is translated into a corresponding
+widget in the Textual library.</p>
+<p>The compose method iterates over the form fields and buttons in the blueprint, creating and
+yielding the corresponding Textual widget for each one. These widgets are then used to construct
+the form in the Textual application.</p>
+<p>Users can extend this class to implement their own form layouts and custom widgets. To use a
+custom Composer class, simply pass an instance of it to the Formulator constructor.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>blueprint: The YAML blueprint that describes the form to be generated.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.composer.Composer.form_blueprint">
+<span class="sig-name descname"><span class="pre">form_blueprint</span></span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.form_blueprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.form_blueprint" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">textual.app.ComposeResult</span></span></span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.compose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.compose" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_widget">
+<span class="sig-name descname"><span class="pre">create_widget</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_widget"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_widget" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_input">
+<span class="sig-name descname"><span class="pre">create_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_input"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_input" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_checkbox">
+<span class="sig-name descname"><span class="pre">create_checkbox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_checkbox"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_checkbox" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_radioset">
+<span class="sig-name descname"><span class="pre">create_radioset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_radioset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_radioset" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_select">
+<span class="sig-name descname"><span class="pre">create_select</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_select"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_select" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_optionlist">
+<span class="sig-name descname"><span class="pre">create_optionlist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_optionlist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_optionlist" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.composer.Composer.create_switch">
+<span class="sig-name descname"><span class="pre">create_switch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">field</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/composer.html#Composer.create_switch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.composer.Composer.create_switch" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+      </div>
+      <footer></footer>
+    </article>
+
+  </main>
+
+<div class="asides">
+    <aside>
+        <h3>Search</h3>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </aside>
+    
+</div>
+<footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Nav">
+          <a href="../app/index.html" class="btn btn-neutral float-left" title="formulator.app" accesskey="p" rel="prev"> Previous</a>
+          <a href="../formulator/index.html" class="btn btn-neutral float-right" title="formulator.formulator" accesskey="n" rel="next">Next </a>
+      </div>
+    <hr/>
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright .
+        </p>
+    </div>
+</footer>
+
+  <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+  <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+  <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+  <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+
+</body>
+</html>

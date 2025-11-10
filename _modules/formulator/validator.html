@@ -1,0 +1,191 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulator.validator &mdash; Project name not set  documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=ea5fcf70" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css?v=d4fd7cae" />
+  <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../../index.html">
+        <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+      </a>
+      <div class="org-repo">
+        <span class="org">photon-platform</span>
+        •
+        <span class="repo">formulator</span>
+      </div>
+    </div>
+    <nav aria-label="Header">
+      <input type="checkbox" id="nav-Header-toggle" >
+      <label for="nav-Header-toggle" >Header</label>
+      <ul>
+        <li>
+          <a href="../../log/index.html"  >log</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="motto"></div>
+  </header>
+  <main>
+
+    <article>
+      <nav class="context">
+        <div class="prev">
+        </div>
+        <div class="next">
+        </div>
+      </nav>
+      <nav class="breadcrumbs">
+        <span><a href="../../index.html">Home</a></span>
+          <span>/</span>
+        <span><a href="../index.html">Module code</a></span>
+          <span>/</span>
+        <span><a href="../formulator.html">formulator</a></span>
+        <span>/</span>
+        <span>formulator.validator</span>
+      </nav>
+      <div class="content">
+          <h1>Source code for formulator.validator</h1><div class="highlight"><pre>
+<div class="viewcode-block" id="Validator">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator">[docs]</a>
+<span></span><span class="k">class</span><span class="w"> </span><span class="nc">Validator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Validator is a class containing static methods for validating form inputs.</span>
+
+<span class="sd">    Each method in Validator takes the following parameters:</span>
+<span class="sd">    - field_label: The label of the field being validated. Used in error messages.</span>
+<span class="sd">    - value: The value of the field being validated.</span>
+<span class="sd">    - validation_errors: A list to which any validation error messages should be appended.</span>
+<span class="sd">    - rule_value: The value of the validation rule (e.g., minimum length, maximum length, etc.).</span>
+
+<span class="sd">    The following validation rules are currently implemented:</span>
+<span class="sd">    - required: Checks that the field is not empty or only whitespace.</span>
+<span class="sd">    - min_length: Checks that the field&#39;s value is at least a certain number of characters long.</span>
+<span class="sd">    - max_length: Checks that the field&#39;s value is not longer than a certain number of characters.</span>
+<span class="sd">    - min_value: Checks that the field&#39;s value (cast to a float) is not less than a certain number.</span>
+<span class="sd">    - max_value: Checks that the field&#39;s value (cast to a float) is not more than a certain number.</span>
+<span class="sd">    - email: Checks that the field&#39;s value is a valid email address (contains an &#39;@&#39; and a &#39;.&#39;).</span>
+<span class="sd">    - numeric: Checks that the field&#39;s value is numeric (contains only digits).</span>
+<span class="sd">    - alphabetic: Checks that the field&#39;s value is alphabetic (contains only letters).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.required">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.required">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">required</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">required</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">required</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">():</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> is required.&quot;</span><span class="p">)</span></div>
+
+    
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.min_length">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.min_length">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min_length</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">min_length</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_length</span><span class="p">:</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be at least </span><span class="si">{</span><span class="n">min_length</span><span class="si">}</span><span class="s2"> characters long.&quot;</span>
+            <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.max_length">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.max_length">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max_length</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">max_length</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">max_length</span><span class="p">:</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be no more than </span><span class="si">{</span><span class="n">max_length</span><span class="si">}</span><span class="s2"> characters long.&quot;</span>
+            <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.min_value">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.min_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">min_value</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">min_value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&lt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">min_value</span><span class="p">):</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be at least </span><span class="si">{</span><span class="n">min_value</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.max_value">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.max_value">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">max_value</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">max_value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">value</span> <span class="ow">and</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">float</span><span class="p">(</span><span class="n">max_value</span><span class="p">):</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be no more than </span><span class="si">{</span><span class="n">max_value</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.email">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.email">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">email</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">is_email</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_email</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;@&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span> <span class="ow">or</span> <span class="s2">&quot;.&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span><span class="p">:</span>
+                <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be a valid email address.&quot;</span>
+                <span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.numeric">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.numeric">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">numeric</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">is_numeric</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_numeric</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">():</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be a numeric value.&quot;</span><span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Validator.alphabetic">
+<a class="viewcode-back" href="../../modules/api/formulator/validator/index.html#formulator.validator.Validator.alphabetic">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">alphabetic</span><span class="p">(</span><span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">is_alphabetic</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">is_alphabetic</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">value</span><span class="o">.</span><span class="n">isalpha</span><span class="p">():</span>
+            <span class="n">validation_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_label</span><span class="si">}</span><span class="s2"> must be an alphabetic value.&quot;</span><span class="p">)</span></div>
+</div>
+
+
+</pre></div>
+      </div>
+      <footer></footer>
+    </article>
+
+  </main>
+
+<div class="asides">
+    <aside>
+        <h3>Search</h3>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </aside>
+    
+</div>
+<footer>
+    <hr/>
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright .
+        </p>
+    </div>
+</footer>
+
+  <script src="../../_static/jquery.js?v=5d32c60e"></script>
+  <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+  <script src="../../_static/doctools.js?v=9bcbadda"></script>
+  <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+
+</body>
+</html>

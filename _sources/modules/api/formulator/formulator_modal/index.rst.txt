@@ -1,0 +1,132 @@
+formulator.formulator_modal
+===========================
+
+.. py:module:: formulator.formulator_modal
+
+.. autoapi-nested-parse::
+
+   FormulatorModal
+
+   Formulator uses a YAML blueprint to generate an interactive form in the
+   terminal using the Textual library. This script dynamically creates form
+   fields and buttons based on the provided blueprint and performs validation
+   checks on the input values when the form is submitted. Users can easily add new
+   validation rules by adding new validation methods to the 'Validator' class.
+
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   formulator.formulator_modal.FormulatorModal
+
+
+Module Contents
+---------------
+
+.. py:class:: FormulatorModal(form_blueprint, validator=None, composer=None)
+
+   Bases: :py:obj:`textual.screen.ModalScreen`
+
+
+       
+
+
+   .. py:attribute:: CSS_PATH
+      :value: 'formulator.css'
+
+
+      File paths to load CSS from.
+
+      Note:
+          This CSS applies to the whole app.
+
+
+
+   .. py:attribute:: TITLE
+      :value: 'FORMULATOR'
+
+
+      A class variable to set the *default* title for the screen.
+
+      This overrides the app title.
+      To update the title while the screen is running,
+      you can set the [title][textual.screen.Screen.title] attribute.
+
+
+
+   .. py:attribute:: BINDINGS
+      :value: [('ctrl+s', 'save', 'save'), ('esc, ctrl+q', 'quit', 'quit')]
+
+
+      A list of key bindings.
+
+
+
+   .. py:attribute:: form_blueprint
+
+
+   .. py:attribute:: title
+
+      Screen title to override [the app title][textual.app.App.title].
+
+
+
+   .. py:attribute:: validator
+
+
+   .. py:attribute:: composer
+
+
+   .. py:method:: compose() -> textual.app.ComposeResult
+
+      Called by Textual to create child widgets.
+
+      This method is called when a widget is mounted or by setting `recompose=True` when
+      calling [`refresh()`][textual.widget.Widget.refresh].
+
+      Note that you don't typically need to explicitly call this method.
+
+      Example:
+          ```python
+          def compose(self) -> ComposeResult:
+              yield Header()
+              yield Label("Press the button below:")
+              yield Button()
+              yield Footer()
+          ```
+
+
+
+   .. py:method:: on_button_pressed(event: textual.widgets.Button.Pressed) -> None
+
+      Event handler called when a button is pressed.
+
+      If the 'Save' button is pressed, it calls the action_save method to validate
+      and save the form data. If the 'Quit' button is pressed, it exits the application.
+
+
+
+   .. py:method:: action_save()
+
+      Method called when the 'Save' button is pressed.
+
+      This method retrieves and validates the data from the form fields, then
+      either displays validation errors or returns the form data and exits the
+      application.
+
+
+
+   .. py:method:: action_screenshot(path: str = './') -> None
+
+      Save an SVG "screenshot". This action will save an SVG file containing
+      the current contents of the screen.
+
+      Args:
+          filename (str | None, optional): Filename of screenshot, or None to auto-generate. Defaults to None.
+          path (str, optional): Path to directory. Defaults to "./".
+
+
+

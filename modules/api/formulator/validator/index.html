@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulator.validator &mdash; Project name not set  documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=ea5fcf70" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/css/styles.css?v=d4fd7cae" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../../../../index.html">
+        <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+      </a>
+      <div class="org-repo">
+        <span class="org">photon-platform</span>
+        •
+        <span class="repo">formulator</span>
+      </div>
+    </div>
+    <nav aria-label="Header">
+      <input type="checkbox" id="nav-Header-toggle" >
+      <label for="nav-Header-toggle" >Header</label>
+      <ul>
+        <li>
+          <a href="../../../../log/index.html"  >log</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="motto"></div>
+  </header>
+  <main>
+
+    <article>
+      <nav class="context">
+        <div class="prev">
+           <a href="../modal/index.html" class="prev" title="formulator.modal" >Prev</a>
+        </div>
+        <div class="next">
+        </div>
+      </nav>
+      <nav class="breadcrumbs">
+        <span><a href="../../../../index.html">Home</a></span>
+          <span>/</span>
+        <span><a href="../../index.html">API Reference</a></span>
+          <span>/</span>
+        <span><a href="../index.html">formulator</a></span>
+        <span>/</span>
+        <span>formulator.validator</span>
+      </nav>
+      <div class="content">
+          <section id="module-formulator.validator">
+<span id="formulator-validator"></span><h1>formulator.validator<a class="headerlink" href="#module-formulator.validator" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#formulator.validator.Validator" title="formulator.validator.Validator"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Validator</span></code></a></p></td>
+<td><p>Validator is a class containing static methods for validating form inputs.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="formulator.validator.Validator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">formulator.validator.</span></span><span class="sig-name descname"><span class="pre">Validator</span></span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator" title="Link to this definition">¶</a></dt>
+<dd><p>Validator is a class containing static methods for validating form inputs.</p>
+<p>Each method in Validator takes the following parameters:
+- field_label: The label of the field being validated. Used in error messages.
+- value: The value of the field being validated.
+- validation_errors: A list to which any validation error messages should be appended.
+- rule_value: The value of the validation rule (e.g., minimum length, maximum length, etc.).</p>
+<p>The following validation rules are currently implemented:
+- required: Checks that the field is not empty or only whitespace.
+- min_length: Checks that the field’s value is at least a certain number of characters long.
+- max_length: Checks that the field’s value is not longer than a certain number of characters.
+- min_value: Checks that the field’s value (cast to a float) is not less than a certain number.
+- max_value: Checks that the field’s value (cast to a float) is not more than a certain number.
+- email: Checks that the field’s value is a valid email address (contains an ‘&#64;’ and a ‘.’).
+- numeric: Checks that the field’s value is numeric (contains only digits).
+- alphabetic: Checks that the field’s value is alphabetic (contains only letters).</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.required">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">required</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">required</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.required"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.required" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.min_length">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.min_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.min_length" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.max_length">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_length</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.max_length"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.max_length" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.min_value">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.min_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.min_value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.max_value">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_value</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.max_value"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.max_value" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.email">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">email</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_email</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.email"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.email" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.numeric">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">numeric</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_numeric</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.numeric"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.numeric" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.validator.Validator.alphabetic">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">alphabetic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">field_label</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validation_errors</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_alphabetic</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/validator.html#Validator.alphabetic"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.validator.Validator.alphabetic" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+      </div>
+      <footer></footer>
+    </article>
+
+  </main>
+
+<div class="asides">
+    <aside>
+        <h3>Search</h3>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </aside>
+    
+</div>
+<footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Nav">
+          <a href="../modal/index.html" class="btn btn-neutral float-left" title="formulator.modal" accesskey="p" rel="prev"> Previous</a>
+      </div>
+    <hr/>
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright .
+        </p>
+    </div>
+</footer>
+
+  <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+  <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+  <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+  <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+/* templates/article *****************************/
+
+body.roman {
+  > main {
+    > article {
+      // max-width: 48em;
+      
+      > .content {
+        counter-reset: h1;
+        counter-reset: h2;
+        --indent: 2rem;
+
+        h2 {
+          font-size: 1.1em;
+          counter-reset: h3;
+          counter-increment: h2;
+          margin-left: calc( 2 * var(--indent));
+
+          &::before {
+            display: inline-block;
+            width: var(--indent);
+            margin-left: calc( -1 * var(--indent));
+            content: counter(h2, upper-latin) ".";
+          }
+
+          & ~ p,
+          & ~ ol, 
+          & ~ ul {
+            margin-left: calc( 2 * var(--indent));
+          }
+        }
+
+        h1 {
+          font-size: 1.1em;
+          counter-reset: h2;
+          counter-increment: h1;
+          margin-left: var(--indent);
+
+          &::before {
+            display: inline-block;
+            width: var(--indent);
+            margin-left: calc( -1 * var(--indent));
+            content: counter(h1, upper-roman) ".";
+          }
+
+          & ~ p,
+          & ~ ol, 
+          & ~ ul {
+            margin-left: var(--indent);
+          }
+        }
+      }
+    }
+  }
+}

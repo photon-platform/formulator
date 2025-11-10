@@ -1,0 +1,38 @@
+// Paragraphs. OpenType ligatures and oldstyle figures enabled if available.
+p, div,
+dl, dd, dt,
+details, summary {
+  display: block;
+  font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
+}
+
+dl {
+  padding: var(--fitz-half);
+  margin: var(--fitz-half);
+  // display: grid;
+  grid-gap: var(--fitz-half);
+  grid-template-columns: auto 1fr;
+
+  dt {
+    font-weight: 700;
+    grid-column: 1 / 2;
+    // text-align: right;
+    padding-right: var(--fitz-half);
+    &::after {
+      content: ':';
+    }
+  }
+
+  dd {
+    grid-column: 2 / 3;
+  }
+
+  dt ~ dt {
+    // margin-top: var(--fitz-half);
+  }
+}
+
+
+hr {
+  border-top: 1px solid var(--color-key);
+}

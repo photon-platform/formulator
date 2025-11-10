@@ -1,0 +1,15 @@
+/* sections *****************************/
+
+%section-default {
+  // padding: var(--fitz);
+  // margin: var(--fitz);
+}
+
+section {
+  @extend %section-default;
+}
+
+@import 'asides';
+@import 'footer';
+@import 'header';
+@import 'main';

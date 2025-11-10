@@ -1,0 +1,18 @@
+header {
+  @extend %section-default;
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .org-repo {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+}

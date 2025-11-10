@@ -1,0 +1,53 @@
+/* asides/aside *****************************/
+
+aside, nav {
+  h1, h2 {
+    font-size: 1.1em;
+  }
+
+  ul {
+    list-style: none;
+    // margin: 0 1em;
+
+    li + li {
+      // margin-top: .4em;
+    }
+  }
+
+  > a {
+    display: block;
+    // list-style: square outside;
+  }
+
+  p {
+    text-align: center;
+    margin: var(--fitz-half);
+    padding:  var(--fitz-half);
+    // padding-bottom: .2em;
+  }
+
+  &.article-share, &.follow {
+    ul {
+      font-family: var(--font-icon);
+      list-style: none;
+      display: flex;
+      flex-flow: row wrap;
+      margin-left: 0;
+      li {
+        width: auto;
+        margin-left: 0;
+      }
+      a {
+        text-transform: inherit;
+        padding: .3em;
+        font-size: 1.1em;
+      }
+    }
+  }
+
+  &.copyright {
+    h2, p {
+      text-align: center;
+    }
+  }
+}

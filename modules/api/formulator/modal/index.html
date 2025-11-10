@@ -1,0 +1,147 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulator.modal &mdash; Project name not set  documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=ea5fcf70" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/css/styles.css?v=d4fd7cae" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../../../../index.html">
+        <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+      </a>
+      <div class="org-repo">
+        <span class="org">photon-platform</span>
+        •
+        <span class="repo">formulator</span>
+      </div>
+    </div>
+    <nav aria-label="Header">
+      <input type="checkbox" id="nav-Header-toggle" >
+      <label for="nav-Header-toggle" >Header</label>
+      <ul>
+        <li>
+          <a href="../../../../log/index.html"  >log</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="motto"></div>
+  </header>
+  <main>
+
+    <article>
+      <nav class="context">
+        <div class="prev">
+           <a href="../formulator_modal/index.html" class="prev" title="formulator.formulator_modal" >Prev</a>
+        </div>
+        <div class="next">
+          <a href="../validator/index.html" class="next" title="formulator.validator" >Next</a>
+        </div>
+      </nav>
+      <nav class="breadcrumbs">
+        <span><a href="../../../../index.html">Home</a></span>
+          <span>/</span>
+        <span><a href="../../index.html">API Reference</a></span>
+          <span>/</span>
+        <span><a href="../index.html">formulator</a></span>
+        <span>/</span>
+        <span>formulator.modal</span>
+      </nav>
+      <div class="content">
+          <section id="module-formulator.modal">
+<span id="formulator-modal"></span><h1>formulator.modal<a class="headerlink" href="#module-formulator.modal" title="Link to this heading">¶</a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#formulator.modal.ErrorScreen" title="formulator.modal.ErrorScreen"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ErrorScreen</span></code></a></p></td>
+<td><p>Screen with a dialog to quit.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="formulator.modal.ErrorScreen">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">formulator.modal.</span></span><span class="sig-name descname"><span class="pre">ErrorScreen</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">errors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#list" title="(in Python v3.9)"><span class="pre">list</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/modal.html#ErrorScreen"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.modal.ErrorScreen" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">textual.screen.ModalScreen</span></code></p>
+<p>Screen with a dialog to quit.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.modal.ErrorScreen.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">textual.app.ComposeResult</span></span></span><a class="reference internal" href="../../../../_modules/formulator/modal.html#ErrorScreen.compose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.modal.ErrorScreen.compose" title="Link to this definition">¶</a></dt>
+<dd><p>Called by Textual to create child widgets.</p>
+<p>This method is called when a widget is mounted or by setting <cite>recompose=True</cite> when
+calling [<cite>refresh()</cite>][textual.widget.Widget.refresh].</p>
+<p>Note that you don’t typically need to explicitly call this method.</p>
+<dl>
+<dt>Example:</dt><dd><p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+def compose(self) -&gt; ComposeResult:</p>
+<blockquote>
+<div><p>yield Header()
+yield Label(“Press the button below:”)
+yield Button()
+yield Footer()</p>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.modal.ErrorScreen.on_button_pressed">
+<span class="sig-name descname"><span class="pre">on_button_pressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">textual.widgets.Button.Pressed</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../../../_modules/formulator/modal.html#ErrorScreen.on_button_pressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.modal.ErrorScreen.on_button_pressed" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+      </div>
+      <footer></footer>
+    </article>
+
+  </main>
+
+<div class="asides">
+    <aside>
+        <h3>Search</h3>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </aside>
+    
+</div>
+<footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Nav">
+          <a href="../formulator_modal/index.html" class="btn btn-neutral float-left" title="formulator.formulator_modal" accesskey="p" rel="prev"> Previous</a>
+          <a href="../validator/index.html" class="btn btn-neutral float-right" title="formulator.validator" accesskey="n" rel="next">Next </a>
+      </div>
+    <hr/>
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright .
+        </p>
+    </div>
+</footer>
+
+  <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+  <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+  <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+  <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+
+</body>
+</html>

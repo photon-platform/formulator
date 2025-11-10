@@ -1,0 +1,78 @@
+formulator.validator
+====================
+
+.. py:module:: formulator.validator
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   formulator.validator.Validator
+
+
+Module Contents
+---------------
+
+.. py:class:: Validator
+
+   Validator is a class containing static methods for validating form inputs.
+
+   Each method in Validator takes the following parameters:
+   - field_label: The label of the field being validated. Used in error messages.
+   - value: The value of the field being validated.
+   - validation_errors: A list to which any validation error messages should be appended.
+   - rule_value: The value of the validation rule (e.g., minimum length, maximum length, etc.).
+
+   The following validation rules are currently implemented:
+   - required: Checks that the field is not empty or only whitespace.
+   - min_length: Checks that the field's value is at least a certain number of characters long.
+   - max_length: Checks that the field's value is not longer than a certain number of characters.
+   - min_value: Checks that the field's value (cast to a float) is not less than a certain number.
+   - max_value: Checks that the field's value (cast to a float) is not more than a certain number.
+   - email: Checks that the field's value is a valid email address (contains an '@' and a '.').
+   - numeric: Checks that the field's value is numeric (contains only digits).
+   - alphabetic: Checks that the field's value is alphabetic (contains only letters).
+
+
+   .. py:method:: required(field_label, value, validation_errors, required)
+      :staticmethod:
+
+
+
+   .. py:method:: min_length(field_label, value, validation_errors, min_length)
+      :staticmethod:
+
+
+
+   .. py:method:: max_length(field_label, value, validation_errors, max_length)
+      :staticmethod:
+
+
+
+   .. py:method:: min_value(field_label, value, validation_errors, min_value)
+      :staticmethod:
+
+
+
+   .. py:method:: max_value(field_label, value, validation_errors, max_value)
+      :staticmethod:
+
+
+
+   .. py:method:: email(field_label, value, validation_errors, is_email)
+      :staticmethod:
+
+
+
+   .. py:method:: numeric(field_label, value, validation_errors, is_numeric)
+      :staticmethod:
+
+
+
+   .. py:method:: alphabetic(field_label, value, validation_errors, is_alphabetic)
+      :staticmethod:
+
+
+

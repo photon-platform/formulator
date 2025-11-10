@@ -1,0 +1,15 @@
+/* fonts *****************************/
+@import 'photon-icon';
+@import 'fira_sans';
+@import 'fira_sans_condensed';
+@import 'fira_code';
+
+:root {
+  --font: "Fira Sans Condensed";
+  --font-display: "Fira Sans";
+  --font-code: "Fira Code";
+  --font-form: var(--font);
+  --font-icon: 'photon-icon';
+
+  --bullet: '✴';
+}

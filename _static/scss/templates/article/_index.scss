@@ -1,0 +1,19 @@
+/* templates/article *****************************/
+
+body.article {
+  > main {
+    > article {
+      &:only-child {
+        figure {
+        }
+      }
+    }
+
+    &[data-collection="0"] {
+      > .collection {
+      }
+    }
+  }
+}
+
+@import '_article-roman';

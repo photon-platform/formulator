@@ -1,0 +1,128 @@
+// Adapted from sphinx_rtd_theme
+// https://github.com/readthedocs/sphinx_rtd_theme/blob/master/src/sass/_theme_layout.sass
+
+.wy-menu-vertical {
+  width: 100%; // Let our grid handle the width
+
+  header, p.caption {
+    color: var(--heading-color);
+    height: 2em;
+    line-height: 2em;
+    padding: 0 1em;
+    margin: 0.5em 0;
+    display: block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 85%;
+    white-space: nowrap;
+  }
+
+  ul {
+    margin-bottom: 0;
+  }
+
+  li {
+    &.current {
+      background: var(--bg-color);
+      a {
+        color: var(--link-hover-color);
+        border-right: solid 1px var(--border-color);
+        padding: 0.25em 1.5em;
+        &:hover {
+          background: var(--bg-alt-color);
+        }
+      }
+    }
+    // Expand links
+    button.toctree-expand {
+      display: block;
+      float: left;
+      margin-left: -1.2em;
+      font-family: var(--font-icon); // Use our icon font
+      content: '+'; // Placeholder, JS will likely replace
+      line-height: 18px;
+      color: var(--text-color);
+      border: none;
+      background: none;
+      padding: 0;
+    }
+  }
+
+  // On state for the first level
+  li.on > a, li.current > a {
+    color: var(--heading-color);
+    padding: 0.25em 1em;
+    font-weight: bold;
+    position: relative;
+    background: var(--bg-alt-color);
+    border: none;
+    padding-left: 1em;
+    &:hover {
+      background: var(--bg-alt-color);
+    }
+  }
+
+  // This is the on state for pages beyond second level
+  %hide_show_toctree_ul {
+    > ul {
+      display: none;
+    }
+    &.current > ul {
+      display: block;
+    }
+  }
+
+  @for $toc_level from 1 through 10 {
+    .toctree-l#{$toc_level}.current .toctree-l#{$toc_level + 1} {
+      @extend %hide_show_toctree_ul;
+    }
+
+    @if $toc_level > 1 {
+      li.toctree-l#{$toc_level} {
+        a {
+          color: var(--text-color);
+        }
+        &.current {
+          > a {
+            padding: 0.25em (1em * ($toc_level - 1 + 0.5));
+          }
+          li.toctree-l#{$toc_level + 1} > a {
+            display: block;
+            padding: 0.25em (1em * ($toc_level + 0.5));
+            padding-right: 1em;
+          }
+        }
+      }
+    }
+  }
+
+  li.current ul {
+    display: block;
+  }
+  li ul {
+    margin-bottom: 0;
+    display: none;
+  }
+  li ul li a {
+    margin-bottom: 0;
+    color: var(--text-color);
+    font-weight: normal;
+  }
+  a {
+    line-height: 18px;
+    padding: 0.25em 1em;
+    display: block;
+    position: relative;
+    font-size: 90%;
+    color: var(--text-color);
+    &:hover {
+      background-color: var(--bg-alt-color);
+      cursor: pointer;
+    }
+    &:active {
+      background-color: var(--link-color);
+      cursor: pointer;
+      color: var(--bg-color);
+    }
+  }
+}

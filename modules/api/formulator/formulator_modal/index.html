@@ -1,0 +1,222 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulator.formulator_modal &mdash; Project name not set  documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=ea5fcf70" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/css/styles.css?v=d4fd7cae" />
+  <link rel="stylesheet" type="text/css" href="../../../../_static/graphviz.css?v=4ae1632d" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../../../../index.html">
+        <img src="../../../../_static/logo.png" class="logo" alt="Logo"/>
+      </a>
+      <div class="org-repo">
+        <span class="org">photon-platform</span>
+        •
+        <span class="repo">formulator</span>
+      </div>
+    </div>
+    <nav aria-label="Header">
+      <input type="checkbox" id="nav-Header-toggle" >
+      <label for="nav-Header-toggle" >Header</label>
+      <ul>
+        <li>
+          <a href="../../../../log/index.html"  >log</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="motto"></div>
+  </header>
+  <main>
+
+    <article>
+      <nav class="context">
+        <div class="prev">
+           <a href="../formulator/index.html" class="prev" title="formulator.formulator" >Prev</a>
+        </div>
+        <div class="next">
+          <a href="../modal/index.html" class="next" title="formulator.modal" >Next</a>
+        </div>
+      </nav>
+      <nav class="breadcrumbs">
+        <span><a href="../../../../index.html">Home</a></span>
+          <span>/</span>
+        <span><a href="../../index.html">API Reference</a></span>
+          <span>/</span>
+        <span><a href="../index.html">formulator</a></span>
+        <span>/</span>
+        <span>formulator.formulator_modal</span>
+      </nav>
+      <div class="content">
+          <section id="module-formulator.formulator_modal">
+<span id="formulator-formulator-modal"></span><h1>formulator.formulator_modal<a class="headerlink" href="#module-formulator.formulator_modal" title="Link to this heading">¶</a></h1>
+<p>FormulatorModal</p>
+<p>Formulator uses a YAML blueprint to generate an interactive form in the
+terminal using the Textual library. This script dynamically creates form
+fields and buttons based on the provided blueprint and performs validation
+checks on the input values when the form is submitted. Users can easily add new
+validation rules by adding new validation methods to the ‘Validator’ class.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#formulator.formulator_modal.FormulatorModal" title="formulator.formulator_modal.FormulatorModal"><code class="xref py py-obj docutils literal notranslate"><span class="pre">FormulatorModal</span></code></a></p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">formulator.formulator_modal.</span></span><span class="sig-name descname"><span class="pre">FormulatorModal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">form_blueprint</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validator</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">composer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">textual.screen.ModalScreen</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.CSS_PATH">
+<span class="sig-name descname"><span class="pre">CSS_PATH</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'formulator.css'</span></em><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.CSS_PATH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.CSS_PATH" title="Link to this definition">¶</a></dt>
+<dd><p>File paths to load CSS from.</p>
+<dl class="simple">
+<dt>Note:</dt><dd><p>This CSS applies to the whole app.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.TITLE">
+<span class="sig-name descname"><span class="pre">TITLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FORMULATOR'</span></em><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.TITLE"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.TITLE" title="Link to this definition">¶</a></dt>
+<dd><p>A class variable to set the <em>default</em> title for the screen.</p>
+<p>This overrides the app title.
+To update the title while the screen is running,
+you can set the [title][textual.screen.Screen.title] attribute.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.BINDINGS">
+<span class="sig-name descname"><span class="pre">BINDINGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[('ctrl+s',</span> <span class="pre">'save',</span> <span class="pre">'save'),</span> <span class="pre">('esc,</span> <span class="pre">ctrl+q',</span> <span class="pre">'quit',</span> <span class="pre">'quit')]</span></em><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.BINDINGS"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.BINDINGS" title="Link to this definition">¶</a></dt>
+<dd><p>A list of key bindings.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.form_blueprint">
+<span class="sig-name descname"><span class="pre">form_blueprint</span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.form_blueprint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.form_blueprint" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.title">
+<span class="sig-name descname"><span class="pre">title</span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.title"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.title" title="Link to this definition">¶</a></dt>
+<dd><p>Screen title to override [the app title][textual.app.App.title].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.validator">
+<span class="sig-name descname"><span class="pre">validator</span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.validator"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.validator" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.composer">
+<span class="sig-name descname"><span class="pre">composer</span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.composer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.composer" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.compose">
+<span class="sig-name descname"><span class="pre">compose</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">textual.app.ComposeResult</span></span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.compose"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.compose" title="Link to this definition">¶</a></dt>
+<dd><p>Called by Textual to create child widgets.</p>
+<p>This method is called when a widget is mounted or by setting <cite>recompose=True</cite> when
+calling [<cite>refresh()</cite>][textual.widget.Widget.refresh].</p>
+<p>Note that you don’t typically need to explicitly call this method.</p>
+<dl>
+<dt>Example:</dt><dd><p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+def compose(self) -&gt; ComposeResult:</p>
+<blockquote>
+<div><p>yield Header()
+yield Label(“Press the button below:”)
+yield Button()
+yield Footer()</p>
+</div></blockquote>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.on_button_pressed">
+<span class="sig-name descname"><span class="pre">on_button_pressed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">textual.widgets.Button.Pressed</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.on_button_pressed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.on_button_pressed" title="Link to this definition">¶</a></dt>
+<dd><p>Event handler called when a button is pressed.</p>
+<p>If the ‘Save’ button is pressed, it calls the action_save method to validate
+and save the form data. If the ‘Quit’ button is pressed, it exits the application.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.action_save">
+<span class="sig-name descname"><span class="pre">action_save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.action_save"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.action_save" title="Link to this definition">¶</a></dt>
+<dd><p>Method called when the ‘Save’ button is pressed.</p>
+<p>This method retrieves and validates the data from the form fields, then
+either displays validation errors or returns the form data and exits the
+application.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="formulator.formulator_modal.FormulatorModal.action_screenshot">
+<span class="sig-name descname"><span class="pre">action_screenshot</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3.9/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'./'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3.9/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a></span></span><a class="reference internal" href="../../../../_modules/formulator/formulator_modal.html#FormulatorModal.action_screenshot"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#formulator.formulator_modal.FormulatorModal.action_screenshot" title="Link to this definition">¶</a></dt>
+<dd><p>Save an SVG “screenshot”. This action will save an SVG file containing
+the current contents of the screen.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>filename (str | None, optional): Filename of screenshot, or None to auto-generate. Defaults to None.
+path (str, optional): Path to directory. Defaults to “./”.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+      </div>
+      <footer></footer>
+    </article>
+
+  </main>
+
+<div class="asides">
+    <aside>
+        <h3>Search</h3>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </aside>
+    
+</div>
+<footer>
+      <div class="rst-footer-buttons" role="navigation" aria-label="Footer Nav">
+          <a href="../formulator/index.html" class="btn btn-neutral float-left" title="formulator.formulator" accesskey="p" rel="prev"> Previous</a>
+          <a href="../modal/index.html" class="btn btn-neutral float-right" title="formulator.modal" accesskey="n" rel="next">Next </a>
+      </div>
+    <hr/>
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright .
+        </p>
+    </div>
+</footer>
+
+  <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+  <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+  <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+  <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+
+</body>
+</html>

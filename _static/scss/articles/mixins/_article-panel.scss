@@ -1,0 +1,35 @@
+@mixin article-panel() {
+  grid-template-columns:  1fr 1fr;
+  grid-template-areas:
+    ' figure header'
+    ' figure content '
+    ' figure footer ';
+
+  > figure {
+    height: var(--col);
+  }
+
+  > footer {
+    // flex-flow: row nowrap;
+    
+    > aside {
+      padding: 0;
+      > h1 {
+        display: none;
+      }
+      > ul {
+        // display: inline;
+        > li {
+          display: inline;
+        }
+      }
+    }
+    
+    > nav {
+      text-align: right;
+      padding: 0;
+      // align-self: flex-end;
+      // justify-content: right;
+    }
+  }
+}

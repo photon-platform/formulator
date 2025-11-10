@@ -1,0 +1,6 @@
+
+  > .asides {
+    @import '../../asides/search';
+    display: flex;
+    flex-flow: column nowrap;
+  }

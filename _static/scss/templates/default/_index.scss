@@ -1,0 +1,64 @@
+/* templates/_default *****************************/
+
+body {
+  color: var(--text-color);
+  background: var(--bg-color);
+
+  padding: var(--fitz);
+  display: flex;
+  flex-flow: column nowrap;
+
+  > * {
+    background: var(--bg-alt-color);
+    margin: var(--fitz);
+    padding: var(--fitz);
+  }
+
+  // Assign grid areas to the main semantic elements
+  > header { grid-area: header; }
+  > main { grid-area: main; }
+  > .asides { grid-area: asides; }
+  > footer { grid-area: footer; }
+
+  @import 'header';
+  @import 'main';
+  @import 'asides';
+  @import 'footer';
+
+  // --- Responsive Grid Layout ---
+
+  // Mobile first (default is flex column)
+
+  // Tablet / Landscape Phone
+  @media (min-width: 48em) and (orientation: landscape) {
+    display: grid;
+    grid-template-areas:
+        " header main "
+        " asides main "
+        " asides footer ";
+    grid-template-columns: 16em 1fr;
+    grid-template-rows: auto 1fr auto;
+
+    > header {
+      flex-flow: column nowrap;
+      align-items: stretch;
+      > nav {
+        flex-flow: column nowrap;
+        align-items: center;
+      }
+    }
+
+    > .asides {
+      flex-flow: column nowrap;
+      align-items: stretch;
+    }
+  }
+
+  // Desktop
+  @media (min-width: 72em) and (orientation: landscape) {
+    grid-template-areas:
+        " header main asides"
+        " footer main asides";
+    grid-template-columns: var(--col) 1fr var(--col);
+  }
+}

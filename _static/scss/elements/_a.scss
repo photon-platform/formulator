@@ -1,0 +1,12 @@
+// default anchor tag
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  background: none;
+
+  &:hover {
+    color: var(--link-hover-color);
+    text-decoration: underline;
+  }
+}

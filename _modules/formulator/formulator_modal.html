@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>formulator.formulator_modal &mdash; Project name not set  documentation</title>
+  <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=ea5fcf70" />
+  <link rel="stylesheet" type="text/css" href="../../_static/css/styles.css?v=d4fd7cae" />
+  <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=4ae1632d" />
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <a href="../../index.html">
+        <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+      </a>
+      <div class="org-repo">
+        <span class="org">photon-platform</span>
+        •
+        <span class="repo">formulator</span>
+      </div>
+    </div>
+    <nav aria-label="Header">
+      <input type="checkbox" id="nav-Header-toggle" >
+      <label for="nav-Header-toggle" >Header</label>
+      <ul>
+        <li>
+          <a href="../../log/index.html"  >log</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="motto"></div>
+  </header>
+  <main>
+
+    <article>
+      <nav class="context">
+        <div class="prev">
+        </div>
+        <div class="next">
+        </div>
+      </nav>
+      <nav class="breadcrumbs">
+        <span><a href="../../index.html">Home</a></span>
+          <span>/</span>
+        <span><a href="../index.html">Module code</a></span>
+          <span>/</span>
+        <span><a href="../formulator.html">formulator</a></span>
+        <span>/</span>
+        <span>formulator.formulator_modal</span>
+      </nav>
+      <div class="content">
+          <h1>Source code for formulator.formulator_modal</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">FormulatorModal</span>
+
+<span class="sd">Formulator uses a YAML blueprint to generate an interactive form in the</span>
+<span class="sd">terminal using the Textual library. This script dynamically creates form</span>
+<span class="sd">fields and buttons based on the provided blueprint and performs validation</span>
+<span class="sd">checks on the input values when the form is submitted. Users can easily add new</span>
+<span class="sd">validation rules by adding new validation methods to the &#39;Validator&#39; class.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.app</span><span class="w"> </span><span class="kn">import</span> <span class="n">App</span><span class="p">,</span> <span class="n">ComposeResult</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.screen</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModalScreen</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.widgets</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Button</span><span class="p">,</span>
+    <span class="n">Input</span><span class="p">,</span>
+    <span class="n">Label</span><span class="p">,</span>
+    <span class="n">Checkbox</span><span class="p">,</span>
+    <span class="n">RadioSet</span><span class="p">,</span>
+    <span class="n">RadioButton</span><span class="p">,</span>
+    <span class="n">Select</span><span class="p">,</span>
+    <span class="n">Switch</span><span class="p">,</span>
+    <span class="n">OptionList</span><span class="p">,</span>
+    <span class="n">Header</span><span class="p">,</span>
+    <span class="n">Footer</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">textual.containers</span><span class="w"> </span><span class="kn">import</span> <span class="n">VerticalScroll</span><span class="p">,</span> <span class="n">Horizontal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">Text</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">rich</span><span class="w"> </span><span class="kn">import</span> <span class="nb">print</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.modal</span><span class="w"> </span><span class="kn">import</span> <span class="n">ErrorScreen</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.validator</span><span class="w"> </span><span class="kn">import</span> <span class="n">Validator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.composer</span><span class="w"> </span><span class="kn">import</span> <span class="n">Composer</span>
+
+
+<div class="viewcode-block" id="FormulatorModal">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">FormulatorModal</span><span class="p">(</span><span class="n">ModalScreen</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="FormulatorModal.CSS_PATH">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.CSS_PATH">[docs]</a>
+    <span class="n">CSS_PATH</span> <span class="o">=</span> <span class="s2">&quot;formulator.css&quot;</span></div>
+
+<div class="viewcode-block" id="FormulatorModal.TITLE">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.TITLE">[docs]</a>
+    <span class="n">TITLE</span> <span class="o">=</span> <span class="s2">&quot;FORMULATOR&quot;</span></div>
+
+<div class="viewcode-block" id="FormulatorModal.BINDINGS">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.BINDINGS">[docs]</a>
+    <span class="n">BINDINGS</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s2">&quot;ctrl+s&quot;</span><span class="p">,</span> <span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="s2">&quot;save&quot;</span><span class="p">),</span>
+        <span class="p">(</span><span class="s2">&quot;esc, ctrl+q&quot;</span><span class="p">,</span> <span class="s2">&quot;quit&quot;</span><span class="p">,</span> <span class="s2">&quot;quit&quot;</span><span class="p">),</span>
+    <span class="p">]</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">form_blueprint</span><span class="p">,</span> <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">composer</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initializes the Formulator application with the given form blueprint and Validator instance.</span>
+
+<span class="sd">        :param form_blueprint: A dictionary representing the form blueprint.</span>
+<span class="sd">        :param validator: An instance of a Validator subclass to be used for validating form fields.</span>
+<span class="sd">        If none is provided, the default Validator is used.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<div class="viewcode-block" id="FormulatorModal.form_blueprint">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.form_blueprint">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">form_blueprint</span> <span class="o">=</span> <span class="n">form_blueprint</span></div>
+
+<div class="viewcode-block" id="FormulatorModal.title">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.title">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form_blueprint</span><span class="p">[</span><span class="s2">&quot;form&quot;</span><span class="p">][</span><span class="s2">&quot;title&quot;</span><span class="p">]</span></div>
+
+<div class="viewcode-block" id="FormulatorModal.validator">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.validator">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">validator</span> <span class="o">=</span> <span class="n">validator</span> <span class="k">if</span> <span class="n">validator</span> <span class="k">else</span> <span class="n">Validator</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="FormulatorModal.composer">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.composer">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">composer</span> <span class="o">=</span> <span class="n">composer</span> <span class="k">if</span> <span class="n">composer</span> <span class="k">else</span> <span class="n">Composer</span><span class="p">(</span><span class="n">form_blueprint</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FormulatorModal.compose">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.compose">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">compose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ComposeResult</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">composer</span><span class="o">.</span><span class="n">compose</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="FormulatorModal.on_button_pressed">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.on_button_pressed">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">on_button_pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="n">Button</span><span class="o">.</span><span class="n">Pressed</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Event handler called when a button is pressed.</span>
+
+<span class="sd">        If the &#39;Save&#39; button is pressed, it calls the action_save method to validate</span>
+<span class="sd">        and save the form data. If the &#39;Quit&#39; button is pressed, it exits the application.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;save&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">action_save</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span><span class="o">.</span><span class="n">id</span> <span class="o">==</span> <span class="s2">&quot;quit&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dismiss</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="FormulatorModal.action_save">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.action_save">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">action_save</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Method called when the &#39;Save&#39; button is pressed.</span>
+
+<span class="sd">        This method retrieves and validates the data from the form fields, then</span>
+<span class="sd">        either displays validation errors or returns the form data and exits the</span>
+<span class="sd">        application.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">fields</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form_blueprint</span><span class="p">[</span><span class="s2">&quot;form&quot;</span><span class="p">][</span><span class="s2">&quot;fields&quot;</span><span class="p">]</span>
+        <span class="n">context</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">validation_errors</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="k">for</span> <span class="n">field_id</span><span class="p">,</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fields</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;type&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;RadioSet&quot;</span><span class="p">:</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_one</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">field_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">pressed_index</span>
+                <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;options&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">])</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">query_one</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;#</span><span class="si">{</span><span class="n">field_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+            <span class="n">context</span><span class="p">[</span><span class="n">field_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+
+            <span class="c1"># Perform validation checks</span>
+            <span class="k">if</span> <span class="s2">&quot;validate&quot;</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
+                <span class="n">validation_rules</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;validate&quot;</span><span class="p">]</span>
+                <span class="n">field_label</span> <span class="o">=</span> <span class="n">field</span><span class="p">[</span><span class="s2">&quot;label&quot;</span><span class="p">]</span>
+                <span class="k">for</span> <span class="n">rule</span><span class="p">,</span> <span class="n">rule_value</span> <span class="ow">in</span> <span class="n">validation_rules</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="n">rule</span><span class="p">):</span>
+                        <span class="n">validation_method</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">validator</span><span class="p">,</span> <span class="n">rule</span><span class="p">)</span>
+                        <span class="n">validation_method</span><span class="p">(</span>
+                            <span class="n">field_label</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">validation_errors</span><span class="p">,</span> <span class="n">rule_value</span>
+                        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">validation_errors</span><span class="p">:</span>
+            <span class="c1">#  self.push_screen(ErrorScreen(validation_errors))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dismiss</span><span class="p">(</span><span class="n">validation_errors</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dismiss</span><span class="p">(</span><span class="n">context</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="FormulatorModal.action_screenshot">
+<a class="viewcode-back" href="../../modules/api/formulator/formulator_modal/index.html#formulator.formulator_modal.FormulatorModal.action_screenshot">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">action_screenshot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;./&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Save an SVG &quot;screenshot&quot;. This action will save an SVG file containing</span>
+<span class="sd">        the current contents of the screen.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            filename (str | None, optional): Filename of screenshot, or None to auto-generate. Defaults to None.</span>
+<span class="sd">            path (str, optional): Path to directory. Defaults to &quot;./&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bell</span><span class="p">()</span>
+
+        <span class="n">form_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">form_blueprint</span><span class="p">[</span><span class="s2">&quot;form&quot;</span><span class="p">][</span><span class="s2">&quot;id&quot;</span><span class="p">]</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">form_id</span><span class="si">}</span><span class="s1">.svg&#39;</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_screenshot</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+        <span class="n">message</span> <span class="o">=</span> <span class="n">Text</span><span class="o">.</span><span class="n">assemble</span><span class="p">(</span><span class="s2">&quot;Screenshot saved to &quot;</span><span class="p">,</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">&#39;&quot;</span><span class="p">,</span> <span class="s2">&quot;bold green&quot;</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span></div>
+</div>
+
+        <span class="c1">#  self.add_note(message)</span>
+        <span class="c1">#  self.screen.mount(Notification(message))</span>
+
+</pre></div>
+      </div>
+      <footer></footer>
+    </article>
+
+  </main>
+
+<div class="asides">
+    <aside>
+        <h3>Search</h3>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+    </aside>
+    
+</div>
+<footer>
+    <hr/>
+    <div role="contentinfo">
+        <p>
+                &copy; Copyright .
+        </p>
+    </div>
+</footer>
+
+  <script src="../../_static/jquery.js?v=5d32c60e"></script>
+  <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+  <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+  <script src="../../_static/doctools.js?v=9bcbadda"></script>
+  <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+
+
+</body>
+</html>

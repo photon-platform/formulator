@@ -1,0 +1,66 @@
+formulator
+==========
+
+.. py:module:: formulator
+
+.. autoapi-nested-parse::
+
+   formulator
+   ==========
+
+   PHOTON platform
+   ---------------
+
+   tools for creating Textual forms
+
+
+
+Submodules
+----------
+
+.. toctree::
+   :maxdepth: 1
+
+   /modules/api/formulator/app/index
+   /modules/api/formulator/composer/index
+   /modules/api/formulator/formulator/index
+   /modules/api/formulator/formulator_modal/index
+   /modules/api/formulator/modal/index
+   /modules/api/formulator/validator/index
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   formulator.__author__
+   formulator.__maintainer__
+   formulator.__email__
+   formulator.__version__
+   formulator.__licence__
+
+
+Package Contents
+----------------
+
+.. py:data:: __author__
+   :value: 'phiarchitect'
+
+
+.. py:data:: __maintainer__
+   :value: 'PHOTON platform'
+
+
+.. py:data:: __email__
+   :value: 'github@phiarchitect.com'
+
+
+.. py:data:: __version__
+   :value: '0.0.3'
+
+
+.. py:data:: __licence__
+   :value: 'MIT'
+
+

@@ -1,0 +1,22 @@
+formulator.app
+==============
+
+.. py:module:: formulator.app
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   formulator.app.run
+
+
+Module Contents
+---------------
+
+.. py:function:: run(blueprint)
+
+   Run Formulator with the provided form blueprint.
+
+

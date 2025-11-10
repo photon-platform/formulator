@@ -1,0 +1,54 @@
+@mixin article-card() {
+  /* article-card */
+
+  display: flex;
+  flex: column nowrap;
+  // justify-content: space-between;
+
+  > figure {
+    > img {
+      width: 100%;
+      height: 100%;
+      height: calc(var(--col) - 2em);
+      // object-fit: cover;
+    }
+  }
+
+  > header {
+    // text-align: center;
+    > * {
+      // text-align: center;
+    }
+  }
+
+  > .content {
+    // align-content: flex-start;
+  }
+
+  > footer {
+    // flex-flow: column nowrap;
+
+    > aside {
+      padding: 0;
+      > h1, h2 {
+        display: none;
+      }
+      ul, li {
+        // display: inline;
+      }
+    }
+
+    > nav {
+      text-align: right;
+      padding: 0;
+      // align-self: flex-end;
+      // justify-content: right;
+    }
+
+    .more {
+      margin: 0 auto;
+      text-align: center;
+      // display: block;
+    }
+  }
+}

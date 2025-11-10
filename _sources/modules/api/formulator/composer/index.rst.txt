@@ -1,0 +1,63 @@
+formulator.composer
+===================
+
+.. py:module:: formulator.composer
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   formulator.composer.Composer
+
+
+Module Contents
+---------------
+
+.. py:class:: Composer(form_blueprint)
+
+   The Composer class is used to dynamically create a form using a YAML blueprint and the Textual library.
+
+   This class takes a form blueprint as input and uses it to generate the structure and components
+   of the form. Each form field and button in the blueprint is translated into a corresponding
+   widget in the Textual library.
+
+   The compose method iterates over the form fields and buttons in the blueprint, creating and
+   yielding the corresponding Textual widget for each one. These widgets are then used to construct
+   the form in the Textual application.
+
+   Users can extend this class to implement their own form layouts and custom widgets. To use a
+   custom Composer class, simply pass an instance of it to the Formulator constructor.
+
+   Attributes:
+       blueprint: The YAML blueprint that describes the form to be generated.
+
+
+   .. py:attribute:: form_blueprint
+
+
+   .. py:method:: compose() -> textual.app.ComposeResult
+
+
+   .. py:method:: create_widget(field_id, field)
+
+
+   .. py:method:: create_input(field_id, field)
+
+
+   .. py:method:: create_checkbox(field_id, field)
+
+
+   .. py:method:: create_radioset(field_id, field)
+
+
+   .. py:method:: create_select(field_id, field)
+
+
+   .. py:method:: create_optionlist(field_id, field)
+
+
+   .. py:method:: create_switch(field_id, field)
+
+

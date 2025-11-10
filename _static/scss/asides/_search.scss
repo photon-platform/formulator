@@ -1,0 +1,48 @@
+// Search Box and Results Styling
+
+// Search box in the navigation
+.wy-side-nav-search {
+  input[type=text] {
+    width: 100%;
+    border-radius: 0.25em;
+    padding: 0.5em 0.75em;
+    border: 1px solid var(--border-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+  }
+}
+
+// Search results page
+#search-results {
+  h2 {
+    margin-bottom: 1em;
+  }
+
+  .search li {
+    margin-bottom: 1.5em;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1.5em;
+  }
+
+  .search li:first-child {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1.5em;
+  }
+
+  .search li a {
+    font-size: 1.2em;
+    margin-bottom: 0.5em;
+    display: inline-block;
+  }
+
+  .context {
+    color: var(--text-color);
+    font-size: 90%;
+  }
+
+  .highlighted {
+    background: var(--link-color);
+    color: var(--bg-color);
+    padding: 0.1em 0.2em;
+  }
+}

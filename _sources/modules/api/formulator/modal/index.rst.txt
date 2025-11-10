@@ -1,0 +1,48 @@
+formulator.modal
+================
+
+.. py:module:: formulator.modal
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   formulator.modal.ErrorScreen
+
+
+Module Contents
+---------------
+
+.. py:class:: ErrorScreen(errors: list)
+
+   Bases: :py:obj:`textual.screen.ModalScreen`
+
+
+   Screen with a dialog to quit.
+
+
+   .. py:method:: compose() -> textual.app.ComposeResult
+
+      Called by Textual to create child widgets.
+
+      This method is called when a widget is mounted or by setting `recompose=True` when
+      calling [`refresh()`][textual.widget.Widget.refresh].
+
+      Note that you don't typically need to explicitly call this method.
+
+      Example:
+          ```python
+          def compose(self) -> ComposeResult:
+              yield Header()
+              yield Label("Press the button below:")
+              yield Button()
+              yield Footer()
+          ```
+
+
+
+   .. py:method:: on_button_pressed(event: textual.widgets.Button.Pressed) -> None
+
+

@@ -1,0 +1,30 @@
+
+
+pre,
+code,
+kbd,
+samp {
+  padding: .1em .25em;
+  font-family: var(--font-code);
+  font-size: 1em;
+  line-height: 1.5;
+  font-weight: bold;
+  // color:  var(--color-bg);
+  // background: var(--color-fg);
+
+  border-radius: 0;
+}
+
+code {
+  height: auto;
+
+  pre & {
+    padding: 1em;
+
+    display: block;
+  }
+}
+
+pre {
+  display: block;
+}

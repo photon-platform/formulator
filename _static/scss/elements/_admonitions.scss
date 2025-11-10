@@ -1,0 +1,61 @@
+/* admonitions */
+
+@mixin admonition($color) {
+  border-left: 5px solid $color;
+  background-color: var(--bg-alt-color);
+  padding: var(--fitz);
+  margin: var(--fitz-2) 0;
+
+  .admonition-title {
+    color: $color;
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.admonition {
+  @include admonition(var(--text-color));
+}
+
+.admonition-todo {
+  @include admonition(#ff8888);
+}
+
+.admonition-note {
+  @include admonition(#88aaff);
+}
+
+.admonition-warning {
+  @include admonition(#ffcc88);
+}
+
+.admonition-danger {
+  @include admonition(#ff8888);
+}
+
+.admonition-attention {
+  @include admonition(#ffcc88);
+}
+
+.admonition-caution {
+  @include admonition(#ffcc88);
+}
+
+.admonition-error {
+  @include admonition(#ff8888);
+}
+
+.admonition-hint {
+  @include admonition(#88ff88);
+}
+
+.admonition-important {
+  @include admonition(#ffcc88);
+}
+
+.admonition-tip {
+  @include admonition(#88ff88);
+}

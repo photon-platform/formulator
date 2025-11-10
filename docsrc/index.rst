@@ -6,10 +6,11 @@ formulator
 recent logs
 -----------
 
-.. postlist:: 5
-   :excerpts:
-
-
+.. collection::
+   :type: log
+   :sort: date
+   :reverse:
+   :limit: 5
 
 .. toctree::
    :hidden:
@@ -19,7 +20,7 @@ recent logs
    usage/index.rst
    demos/index.rst
    modules/index.rst
-   logs.rst
+   log/index.rst
    refs/index.rst
    glossary.rst
    connect.rst
